@@ -1,0 +1,17 @@
+{
+    "name": "my-github-project",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "dependencies": {
+      "@supabase/supabase-js": "^1.0.0",
+      "dotenv": "^10.0.0"
+    },
+    "devDependencies": {},
+    "author": "",
+    "license": "ISC"
+  }
+  
