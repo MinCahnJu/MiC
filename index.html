@@ -12,7 +12,7 @@
       .then(data => {
         let output = '<ul>';
         data.forEach(item => {
-          output += `<li>${item.name} - ${item.age}</li>`;
+          output += `<li>${item.contest_name} - ${item.contest_description}</li>`;
         });
         output += '</ul>';
         document.getElementById('data').innerHTML = output;
