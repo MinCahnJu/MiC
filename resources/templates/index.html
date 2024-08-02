@@ -1,22 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Supabase with Netlify Functions</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supabase Data Example</title>
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
   <h1>Supabase Data Example</h1>
   <div id="data"></div>
-  <script>
-    fetch('/.netlify/functions/getData')
-      .then(response => response.json())
-      .then(data => {
-        let output = '<ul>';
-        data.forEach(item => {
-          output += `<li>${item.contest_name} - ${item.contest_description}</li>`;
-        });
-        output += '</ul>';
-        document.getElementById('data').innerHTML = output;
-      });
-  </script>
+  <script src="../static/JS/script.js"></script>
 </body>
 </html>
