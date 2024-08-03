@@ -1,10 +1,10 @@
 fetch('/.netlify/functions/getData')
   .then(response => response.json())
   .then(data => {
-    let output = '<ul>';
+    let output = '<div class="list"><div>';
     data.forEach(item => {
-      output += `<li>${item.contest_name} - ${item.contest_description}</li>`;
+      output += `<div class="element">${item.contest_name}</div>`;
     });
-    output += '</ul>';
+    output += '</div></div>';
     document.getElementById('data').innerHTML = output;
   });

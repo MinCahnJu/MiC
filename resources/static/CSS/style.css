@@ -1,0 +1,66 @@
+a {
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+}
+
+.title {
+    text-align: center;
+    background-color: blueviolet;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.menu {
+    display: flex;
+    padding-bottom: 10px;
+    border-bottom: 1px solid gray;
+}
+
+.leftMenu {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.rightMenu {
+    flex: 3;
+    margin-right: 10px;
+}
+
+.login-devider {
+    top: -1px;
+    padding: 0;
+    font-size: 13px;
+    position: relative;
+    margin: 0 9px 0 5px;
+    font-family: Tahoma;
+    border-right: solid 1px #bbb;
+}
+
+.select {
+    flex: 1;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.select:hover {
+    border-bottom: 1px solid purple;
+    padding-bottom: 9px;
+    cursor: pointer;
+}
+
+.list {
+    display: flex;
+    justify-content: center;
+}
+
+.element {
+    width: 500px;
+    height: 50px;
+    text-align: center;
+    font-size: 30px;
+    margin: 20px;
+    background-color: yellow;
+    border: 1px solid rgb(141, 143, 95);
+    border-radius: 20px;
+}
