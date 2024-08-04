@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>MiC 로그인</title>
+    <link href="/static/images/MiCwhite.png" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+</head>
+<body>
+    <form action="/home" method="post">
+        <div class="box2" style="min-height: max-content; margin-top: 0px;">
+            <input type="submit" class="topnv" value="MiC 주관 코딩대회">
+        </div>
+    </form>
+    <div class="box2">
+        <div class="formbox">
+            <form method="post" id="multiActionForm">
+                <div class="container">
+                    <h1>Login</h1>
+                    <hr class="hh">
+                    {% if error %}
+                        <div class="error-message">
+                            <p>{{ error }}</p>
+                        </div>
+                    {% endif %}
+                    <div class="line">
+                        <div class="label-group">
+                            <span class="label">아</span>
+                            <span class="label">이</span>
+                            <span class="label">디:</span>
+                        </div>
+                        <input class="input-field" type="text" id="ID" name="ID" required>
+                    </div>
+                    <hr class="hh">
+                    <div class="line">
+                        <div class="label-group">
+                            <span class="label">비</span>
+                            <span class="label">밀</span>
+                            <span class="label">번</span>
+                            <span class="label">호:</span>
+                        </div>
+                        <input class="input-field" type="password" id="password" name="password" required>
+                    </div>
+                    <hr class="hh">
+                </div>
+                <hr class="hh">
+                <button class="submit" type="submit" name="action" value="action1">로그인</button>
+                <button class="submit" type="submit" name="action" value="action2">회원가입</button>
+                <script>
+                    document.getElementById('multiActionForm').addEventListener('submit', function(event) {
+                        const clickedButton = event.submitter;
+                        if (clickedButton) {
+                            if (clickedButton.value === 'action1') {
+                                this.action = "/login";
+                            } else if (clickedButton.value === 'action2') {
+                                this.action = '/moveregister';
+                            }
+                        }
+                    });
+                </script>
+                <hr class="hh">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

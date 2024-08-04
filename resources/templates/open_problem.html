@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>open problem</title>
+    <link href="/images/MiC 흰색 로고.png" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <form action="/home" method="post">
+        <div class="box2" style="min-height: max-content; margin-top: 0px;">
+            <input type="submit" class="topnv" value="Object-oriented Programming and Practice">
+        </div>
+    </form>
+    <div class="container2">
+        <div class="left">
+            <form action="/opencontest" method="get">
+                <button class="ip" style="width: 100px;">Back</button>
+            </form>
+        </div>
+        <div class="right">
+            <span class="jp" th:if="${username != null}" th:text="${username}"></span>
+            <a class="ip" style="width: 100px;" th:if="${username != null}" href="/profile">Profile</a>
+            <a class="ip" style="width: 100px;" th:if="${username != null}" href="/logout">Logout</a>
+            
+            <form th:if="${username == null}" class = "rl" action="/movelogin" method="post">
+                <input class="ip" type="submit" value="Login">
+            </form>
+            <form th:if="${username == null}" class = "rl" action="/moveregister" method="post">
+                <input class="ip" type="submit" value="Register">
+            </form>
+        </div>
+    </div>
+    <hr style="height: 3px; background-color: gray">
+    <div style="text-align: center;">
+        <div><span class="result" th:if="${result != null}" th:text="${result}"></span></div>
+        <hr class = "hh">
+        <div><span style="font-size: 40px; color: blueviolet; font-weight: bold; cursor: default;" th:if="${problemname != null}" th:text="${problemname}"></span></div>
+        <hr class = "hh">
+        <form method="post" id="multiActionForm">
+            <input type="hidden" name="problem" th:value="${problemname}">
+            <button class="edit" type="submit" name="action" value="X" th:if="${username == contestuser or authority == '5' or authority == '4'}">Delete</button>
+            <button class="edit" type="submit" name="action" value="편집" th:if="${username == contestuser or authority == '5' or authority == '4'}">Edit</button>
+        </form>
+        <script th:inline="javascript">
+            document.getElementById('multiActionForm').addEventListener('submit', function(event) {
+                const clickedButton = event.submitter;
+                if (clickedButton) {
+                    if (clickedButton.value === 'X') {
+                        this.action = '/deleteproblem';
+                    } else if (clickedButton.value === '편집') {
+                        this.action = '/moveeditproblem';
+                    }
+                }
+            });
+        </script>
+        <div style="font-size: 30px; margin-left: -550px;">Problem Description</div>
+        <div><span class="problem" id="description" style="white-space: pre-wrap;" th:if="${description != null}" th:text="${description}"></span></div>
+        <hr class = "hh">
+        <div style="font-size: 30px; margin-left: -750px;">Input</div>
+        <div><span class="problem" id="inputdescription" style="white-space: pre-wrap;" th:if="${inputdescription != null}" th:text="${inputdescription}"></span></div>
+        <hr class = "hh">
+        <div style="font-size: 30px; margin-left: -730px;">Output</div>
+        <div><span class="problem" sid="outputdescription" tyle="white-space: pre-wrap;" th:if="${outputdescription != null}" th:text="${outputdescription}"></span></div>
+        <hr class = "hh">
+        <span class="problem" style="width: 400px; border: none;">
+            <div style="font-size: 30px;">Input Example</div>
+            <div><span class="example" id="exampleinput" style="white-space: pre-wrap;" th:if="${exampleinput != null}" th:text="${exampleinput}"></span></div>
+        </span>
+        <span class="problem" style="width: 400px; border: none;">
+            <div style="font-size: 30px;">Output Example</div>
+            <div><span class="example" id="exampleoutput" style="white-space: pre-wrap;" th:if="${exampleoutput != null}" th:text="${exampleoutput}"></span></div>
+        </span>
+        <hr class = "hh">
+        <hr class = "hh">
+        <hr class = "hh">
+        <div style="font-size: 30px; margin-left: -730px;">Submit</div>
+        <form action="/submitCode" method="post">
+            <div>
+                <select class="language" id="language" name="language">
+                    <option value="JAVA">JAVA</option>
+                    <option value="Python">Python</option>
+                    <option value="C">C</option>
+                </select>
+            </div>
+            <textarea class="submitcode" id="code" name="code" rows="10" cols="50" placeholder="Enter your code here..." required></textarea>
+            <br>
+            <button th:if="${username != null}" class="submit" type="submit">submit</button>
+            <span th:if="${username == null}" style="color: red;">Please submit it after logging in</span>
+        </form>
+        <script>
+            document.getElementById('code').addEventListener('keydown', function(event) {
+                if (event.key === 'Tab') {
+                    event.preventDefault();
+    
+                    const textarea = event.target;
+                    const start = textarea.selectionStart;
+                    const end = textarea.selectionEnd;
+    
+                    // Insert 4 spaces at the caret position
+                    textarea.value = textarea.value.substring(0, start) + '    ' + textarea.value.substring(end);
+    
+                    // Move the caret to after the inserted spaces
+                    textarea.selectionStart = textarea.selectionEnd = start + 4;
+                }
+            });
+        </script>
+    </div>
+    <script src="/JS/script.js"></script>
+</body>
+</html>

@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>MiC 회원가입</title>
+    <title>MiC 대회 개최</title>
     <link href="/static/images/MiCwhite.png" rel="shortcut icon" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
 </head>
@@ -18,9 +18,9 @@
     </form>
     <div class="box2">
         <div class="formbox">
-            <form action="/register" method="post">
+            <form action="/makecontest" method="post">
                 <div class="container">
-                    <h1>회원가입</h1>
+                    <h1>대회 정보</h1>
                     <hr class="hh">
                     {% if error %}
                         <div class="error-message">
@@ -29,14 +29,9 @@
                     {% endif %}
                     <div class="line">
                         <div class="label-group">
-                            <span class="label">이</span>
-                            <span class="label">름:</span>
-                        </div>
-                        <input class="input-field" type="text" id="username" name="username" required>
-                    </div>
-                    <hr class="hh">
-                    <div class="line">
-                        <div class="label-group">
+                            <span class="label">본</span>
+                            <span class="label">인</span>
+                            <span class="label"> </span>
                             <span class="label">아</span>
                             <span class="label">이</span>
                             <span class="label">디:</span>
@@ -46,6 +41,24 @@
                     <hr class="hh">
                     <div class="line">
                         <div class="label-group">
+                            <span class="label">대</span>
+                            <span class="label">회</span>
+                            <span class="label"> </span>
+                            <span class="label">이</span>
+                            <span class="label">름:</span>
+                        </div>
+                        <input class="input-field" type="text" id="title" name="title" required>
+                    </div>
+                    <hr class="hh">
+                    <div>
+                        <span style="font-size: 18px; color: red;">만약 공개된 대회로 개최하고 싶다면 "open"을 써주세요</span>
+                    </div>
+                    <hr class="hh">
+                    <div class="line">
+                        <div class="label-group">
+                            <span class="label">대</span>
+                            <span class="label">회</span>
+                            <span class="label"> </span>
                             <span class="label">비</span>
                             <span class="label">밀</span>
                             <span class="label">번</span>
@@ -56,6 +69,9 @@
                     <hr class="hh">
                     <div class="line">
                         <div class="label-group">
+                            <span class="label">대</span>
+                            <span class="label">회</span>
+                            <span class="label"> </span>
                             <span class="label">비</span>
                             <span class="label">밀</span>
                             <span class="label">번</span>
@@ -69,16 +85,23 @@
                     <hr class="hh">
                     <div class="line">
                         <div class="label-group">
-                            <span class="label">전</span>
-                            <span class="label">화</span>
-                            <span class="label">번</span>
-                            <span class="label">호:</span>
+                            <span class="label">대</span>
+                            <span class="label">회</span>
+                            <span class="label">에</span>
+                            <span class="label"> </span>
+                            <span class="label">대</span>
+                            <span class="label">한</span>
+                            <span class="label"> </span>
+                            <span class="label">설</span>
+                            <span class="label">명</span>
                         </div>
-                        <input class="input-field" type="text" id="phoneNumber" name="phoneNumber" required>
                     </div>
+                    <hr class="hh">
+                    <textarea class="longtext" id="description" name="description" rows="10" cols="50"></textarea>
+                    <hr class="hh">
                 </div>
                 <hr class="hh">
-                <input class="submit" type="submit" value="회원가입">
+                <input class="submit" type="submit" value="대회 개최">
                 <hr class="hh">
             </form>
         </div>

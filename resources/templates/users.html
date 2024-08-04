@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>MiC 회원 관리</title>
+    <link href="/static/images/MiCwhite.png" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+</head>
+<body>
+    <form action="/home" method="post">
+        <div class="box2" style="min-height: max-content; margin-top: 0px;">
+            <input type="submit" class="topnv" value="MiC 주관 코딩대회">
+        </div>
+    </form>
+    <div class="container2">
+        <div class="left">
+            <form action="/profile" method="get">
+                <button class="ip" style="width: 100px;">뒤로가기</button>
+            </form>
+        </div>
+        <div class="right">
+            {% if username %}
+                <span class="jp">{{ username }}</span>
+                <a class="ip" style="width: 100px;" href="/profile">프로필</a>
+                <a class="ip" style="width: 100px;" href="/logout">로그아웃</a>
+            {% else %}
+                <form class="rl" action="/movelogin" method="post">
+                    <input class="ip" type="submit" value="로그인">
+                </form>
+                <form class="rl" action="/moveregister" method="post">
+                    <input class="ip" type="submit" value="회원가입">
+                </form>
+            {% endif %}
+        </div>
+    </div>
+    <hr style="height: 3px; background-color: gray">
+    <div class="tablelist">
+        <span style="font-size: 40px;">회원 관리</span>
+    </div>
+    <hr class="hh">
+    <div class="tablelist" {% if authority != '5' %}style="display:none;"{% endif %}>
+        <table>
+            <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>User ID</th>
+                    <th>User PW</th>
+                    <th>User Tell</th>
+                    <th>Authority</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user[0] }}</td>
+                        <td>{{ user[1] }}</td>
+                        <td>{{ user[2] }}</td>
+                        <td>{{ user[3] }}</td>
+                        {% if user[0] == username %}
+                            <td>{{ user[4] }}</td>
+                        {% endif %}
+                        {% if user[0] == username %}
+                            <td>You</td>
+                        {% endif %}
+                        <form id="multiActionForm{{ loop.index }}" method="post" {% if user[0] != username %}style="display:block;"{% else %}style="display:none;"{% endif %}>
+                            <td><input class="authority" type="number" name="selectAuthority" min="0" max="4" step="1" value="{{ user[4] }}"></td>
+                            <td>
+                                <input type="hidden" name="username" value="{{ user[0] }}">
+                                <button type="submit" name="action" value="action1">편집</button>
+                                <button type="submit" name="action" value="action2">삭제</button>
+                            </td>
+                        </form>
+                        <script>
+                            document.getElementById('multiActionForm{{ loop.index }}').addEventListener('submit', function(event) {
+                                const clickedButton = event.submitter;
+                                if (clickedButton) {
+                                    if (clickedButton.value === 'action1') {
+                                        this.action = "/edituser";
+                                    } else if (clickedButton.value === 'action2') {
+                                        this.action = '/deleteuser';
+                                    }
+                                }
+                            });
+                        </script>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

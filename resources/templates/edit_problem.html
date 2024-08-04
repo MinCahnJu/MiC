@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Problem Edit</title>
+    <link href="/images/MiC 흰색 로고.png" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+    <form action="/home" method="post">
+        <div class="box2" style="min-height: max-content; margin-top: 0px;">
+            <input type="submit" class="topnv" value="Object-oriented Programming and Practice">
+        </div>
+    </form>
+    <div class="box2">
+        <div class="formbox" style="width: 800px; margin-top: 200px;">
+            <form method="post" action="/editproblem">
+                <div class="container">
+                    <h1>Problem Detail</h1>
+                    <hr class = "hh">
+                    <div th:if="${error}" class="error-message">
+                        <p th:text="${error}"></p>
+                    </div>
+                    <div>
+                        <span>Contest ID: </span>
+                        <span th:if="${contestid != null}" th:text="${contestid}"></span>
+                    </div>
+                    <span>Contest Name: </span>
+                    <span th:if="${contestname != null}" th:text="${contestname}"></span>
+                    <hr class = "hh">
+                    <div class="line" style = "width: 400px; margin-left: 150px;">
+                        <div class="label-group">
+                            <span class="label">P</span>
+                            <span class="label">r</span>
+                            <span class="label">o</span>
+                            <span class="label">b</span>
+                            <span class="label">l</span>
+                            <span class="label">e</span>
+                            <span class="label">m</span>
+                            <span class="label"> </span>
+                            <span class="label">N</span>
+                            <span class="label">a</span>
+                            <span class="label">m</span>
+                            <span class="label">e:</span>
+                        </div>
+                        <input class="input-field" type="text" id="title" name="title" th:value="${problemname}" required>
+                    </div>
+                    <hr class = "hh">
+                    <div>
+                        <span style="font-size: 18px; color: red;">If you want to use a formula, you can use \(...\) with text and you can use $$...$$ with one line.</span>
+                    </div>
+                    <hr class = "hh">
+                    <div class="line" style = "width: 400px; margin-left: 150px;">
+                        <div class="label-group">
+                            <span class="label">D</span>
+                            <span class="label">e</span>
+                            <span class="label">s</span>
+                            <span class="label">c</span>
+                            <span class="label">r</span>
+                            <span class="label">i</span>
+                            <span class="label">p</span>
+                            <span class="label">t</span>
+                            <span class="label">i</span>
+                            <span class="label">o</span>
+                            <span class="label">n</span>
+                        </div>
+                    </div>
+                    <hr class = "hh">
+                    <textarea class="longtext" style="width: 700px;" id="description" name="description" rows="3" cols="50" th:text="${description}" oninput="autoResize(this)" required></textarea>
+                    <hr class = "hh">
+                    <div class="line" style = "width: 400px; margin-left: 150px;">
+                        <div class="label-group">
+                            <span class="label">I</span>
+                            <span class="label">n</span>
+                            <span class="label">p</span>
+                            <span class="label">u</span>
+                            <span class="label">t</span>
+                            <span class="label"> </span>
+                            <span class="label">D</span>
+                            <span class="label">e</span>
+                            <span class="label">s</span>
+                            <span class="label">c</span>
+                            <span class="label">r</span>
+                            <span class="label">i</span>
+                            <span class="label">p</span>
+                            <span class="label">t</span>
+                            <span class="label">i</span>
+                            <span class="label">o</span>
+                            <span class="label">n</span>
+                        </div>
+                    </div>
+                    <hr class = "hh">
+                    <textarea class="longtext" style="width: 700px;" id="inputdescription" name="inputdescription" rows="3" cols="50" th:text="${inputdescription}" oninput="autoResize(this)" required></textarea>
+                    <hr class = "hh">
+                    <div class="line" style = "width: 400px; margin-left: 150px;">
+                        <div class="label-group">
+                            <span class="label">O</span>
+                            <span class="label">u</span>
+                            <span class="label">t</span>
+                            <span class="label">p</span>
+                            <span class="label">u</span>
+                            <span class="label">t</span>
+                            <span class="label"> </span>
+                            <span class="label">D</span>
+                            <span class="label">e</span>
+                            <span class="label">s</span>
+                            <span class="label">c</span>
+                            <span class="label">r</span>
+                            <span class="label">i</span>
+                            <span class="label">p</span>
+                            <span class="label">t</span>
+                            <span class="label">i</span>
+                            <span class="label">o</span>
+                            <span class="label">n</span>
+                        </div>
+                    </div>
+                    <hr class = "hh">
+                    <textarea class="longtext" style="width: 700px;" id="outputdescription" name="outputdescription" rows="3" cols="50" th:text="${outputdescription}" oninput="autoResize(this)" required></textarea>
+                    <hr class = "hh">
+                    <div style="text-align: center;" id="examples">
+                        <span class="problem" style="width: 360px; border: none;">
+                            <div class="line" style = "width: 200px;" for="input-example-1">
+                                <div class="label-group">
+                                    <span class="label">I</span>
+                                    <span class="label">n</span>
+                                    <span class="label">p</span>
+                                    <span class="label">u</span>
+                                    <span class="label">t</span>
+                                    <span class="label"> </span>
+                                    <span class="label">E</span>
+                                    <span class="label">x</span>
+                                    <span class="label">a</span>
+                                    <span class="label">m</span>
+                                    <span class="label">p</span>
+                                    <span class="label">l</span>
+                                    <span class="label">e</span>
+                                </div>
+                            </div>
+                            <div><textarea class="longtext" style="width: 335px;" id="inputexample" name="exampleinput[]" rows="3" cols="50" th:text="${exampleinput}" oninput="autoResize(this)"></textarea></div>
+                            <hr class = "hh">
+                            <div th:each="inputexample, iterStat : ${inputexamples}">
+                                <textarea class="longtext" style="width: 335px;" th:id="'exampleinput' + ${iterStat.index}" name="exampleinput[]" rows="3" cols="50" th:text="${inputexample}" oninput="autoResize(this)"></textarea>
+                                <hr class = "hh">
+                            </div>
+                        </span>
+                        <span class="problem" style="width: 360px; border: none;">
+                            <div class="line" style = "width: 200px;" for="output-example-1">
+                                <div class="label-group">
+                                    <span class="label">O</span>
+                                    <span class="label">u</span>
+                                    <span class="label">t</span>
+                                    <span class="label">p</span>
+                                    <span class="label">u</span>
+                                    <span class="label">t</span>
+                                    <span class="label"> </span>
+                                    <span class="label">E</span>
+                                    <span class="label">x</span>
+                                    <span class="label">a</span>
+                                    <span class="label">m</span>
+                                    <span class="label">p</span>
+                                    <span class="label">l</span>
+                                    <span class="label">e</span>
+                                </div>
+                            </div>
+                            <div><textarea class="longtext" style="width: 335px;" id="outputexample" name="exampleoutput[]" rows="3" cols="50" th:text="${exampleoutput}" oninput="autoResize(this)"></textarea></div>
+                            <hr class = "hh">
+                            <div th:each="outexample, iterStat : ${outputexamples}">
+                                <textarea class="longtext" style="width: 335px;" th:id="'exampleoutput' + ${iterStat.index}" name="exampleoutput[]" rows="3" cols="50" th:text="${outexample}" oninput="autoResize(this)"></textarea>
+                                <hr class = "hh">
+                            </div>
+                        </span>
+                    </div>
+                    <button class="submit" type="button" id="add-example">Example addition</button><br>
+                </div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        const textareas = document.querySelectorAll('textarea');
+                        textareas.forEach(autoResize);
+                    });
+                </script>
+                <hr class = "hh">
+                <input class="submit" type="submit" value="Edit">
+                <hr class = "hh">
+            </form>
+        </div>
+    </div>
+    <script src="/JS/copy.js"></script>
+</body>
+</html>

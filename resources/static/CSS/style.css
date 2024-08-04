@@ -51,16 +51,41 @@ a {
 
 .list {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .element {
     width: 500px;
     height: 50px;
     text-align: center;
-    font-size: 30px;
+    align-content: center;
+    font-size: 25px;
     margin: 20px;
     background-color: yellow;
-    border: 1px solid rgb(141, 143, 95);
+    border: 2px solid rgb(141, 143, 95);
     border-radius: 20px;
+}
+
+.contestInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contestName {
+    font-size: 40px;
+    padding: 10px;
+}
+
+.contestDescription {
+    font-size: 25px;
+    max-width: 500px;
+    word-break: break-all;
+    padding-bottom: 15px;
+}
+
+.contestAdmin {
+    color: red;
+    font-size: 15px;
 }

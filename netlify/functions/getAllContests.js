@@ -1,4 +1,3 @@
-// netlify/functions/getData.js
 require('dotenv').config();
 const { createClient } = require('@supabase/supabase-js');
 
@@ -9,7 +8,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 exports.handler = async function(event, context) {
   const { data, error } = await supabase
     .from('contests')
-    .select('contest_name, contest_description');
+    .select('contest_name, id');
 
   if (error) {
     return {

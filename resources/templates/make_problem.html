@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>make problem</title>
+    <link href="/static/images/MiCwhite.png" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+</head>
+<body>
+    <form action="/home" method="post">
+        <div class="box2" style="min-height: max-content; margin-top: 0px;">
+            <input type="submit" class="topnv" value="MiC 주관 코딩대회">
+        </div>
+    </form>
+    <div class="box2">
+        <div class="formbox" style="width: 800px; margin-top: 200px;">
+            <form action="/makeproblem" method="post">
+                <div class="container">
+                    <h1>문제 정보</h1>
+                    <hr class = "hh">
+                    {% if error %}
+                        <div class="error-message">
+                            <p>{{ error }}</p>
+                        </div>
+                    {% endif %}
+                    {% if contestid %}
+                        <div>
+                            <span>Contest ID: </span>
+                            <span>{{ contestid }}</span>
+                        </div>
+                    {% endif %}
+                    {% if contest %}
+                        <span>Contest Name: </span>
+                        <span>{{ contest }}</span>
+                    {% endif %}
+                    <hr class = "hh">
+                    <div class="line" style = "width: 400px; margin-left: 150px;">
+                        <div class="label-group">
+                            <span class="label">문</span>
+                            <span class="label">제</span>
+                            <span class="label"> </span>
+                            <span class="label">이</span>
+                            <span class="label">름:</span>
+                        </div>
+                        <input class="input-field" type="text" id="title" name="title" required>
+                    </div>
+                    <hr class = "hh">
+                    <div>
+                        <span style="font-size: 17px; color: red;">만약 수식을 사용하기 원한다면 \(...\) 로 쓰면 텍스트와 함께 보이고 $$...$$ 로 쓰면 한 줄을 차지한다.</span>
+                    </div>
+                    <hr class = "hh">
+                    <div class="line" style = "width: 400px; margin-left: 150px;">
+                        <div class="label-group">
+                            <span class="label">문</span>
+                            <span class="label">제</span>
+                            <span class="label">에</span>
+                            <span class="label"> </span>
+                            <span class="label">대</span>
+                            <span class="label">한</span>
+                            <span class="label"> </span>
+                            <span class="label">설</span>
+                            <span class="label">명</span>
+                        </div>
+                    </div>
+                    <hr class = "hh">
+                    <textarea class="longtext" style="width: 700px;" id="description" name="description" rows="3" cols="50" oninput="autoResize(this)" required></textarea>
+                    <hr class = "hh">
+                    <div class="line" style = "width: 400px; margin-left: 150px;">
+                        <div class="label-group">
+                            <span class="label">입</span>
+                            <span class="label">력</span>
+                            <span class="label">에</span>
+                            <span class="label"> </span>
+                            <span class="label">대</span>
+                            <span class="label">한</span>
+                            <span class="label"> </span>
+                            <span class="label">설</span>
+                            <span class="label">명</span>
+                        </div>
+                    </div>
+                    <hr class = "hh">
+                    <textarea class="longtext" style="width: 700px;" id="inputdescription" name="inputdescription" rows="3" cols="50" oninput="autoResize(this)" required></textarea>
+                    <hr class = "hh">
+                    <div class="line" style = "width: 400px; margin-left: 150px;">
+                        <div class="label-group">
+                            <span class="label">출</span>
+                            <span class="label">력</span>
+                            <span class="label">에</span>
+                            <span class="label"> </span>
+                            <span class="label">대</span>
+                            <span class="label">한</span>
+                            <span class="label"> </span>
+                            <span class="label">설</span>
+                            <span class="label">명</span>
+                        </div>
+                    </div>
+                    <hr class = "hh">
+                    <textarea class="longtext" style="width: 700px;" id="outputdescription" name="outputdescription" rows="3" cols="50" oninput="autoResize(this)" required></textarea>
+                    <hr class = "hh">
+                    <div style="text-align: center;" id="examples">
+                        <span class="problem" style="width: 360px; border: none;">
+                            <div class="line" style = "width: 200px;" for="input-example-1">
+                                <div class="label-group">
+                                    <span class="label">입</span>
+                                    <span class="label">력</span>
+                                    <span class="label">에</span>
+                                    <span class="label"> </span>
+                                    <span class="label">대</span>
+                                    <span class="label">한</span>
+                                    <span class="label"> </span>
+                                    <span class="label">예</span>
+                                    <span class="label">제</span>
+                                </div>
+                            </div>
+                            <textarea class="longtext" style="width: 335px;" name="exampleinput[]" rows="3" cols="50" oninput="autoResize(this)"></textarea>
+                        </span>
+                        <span class="problem" style="width: 360px; border: none;">
+                            <div class="line" style = "width: 200px;" for="output-example-1">
+                                <div class="label-group">
+                                    <span class="label">출</span>
+                                    <span class="label">력</span>
+                                    <span class="label">에</span>
+                                    <span class="label"> </span>
+                                    <span class="label">대</span>
+                                    <span class="label">한</span>
+                                    <span class="label"> </span>
+                                    <span class="label">예</span>
+                                    <span class="label">제</span>
+                                </div>
+                            </div>
+                            <textarea class="longtext" style="width: 335px;" name="exampleoutput[]" rows="3" cols="50" oninput="autoResize(this)"></textarea>
+                        </span>
+                    </div>
+
+                    <button class="submit" type="button" id="add-example">예제 추가</button><br>
+                </div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        const textareas = document.querySelectorAll('textarea');
+                        textareas.forEach(autoResize);
+                    });
+                </script>
+                <hr class = "hh">
+                <input class="submit" type="submit" name="operation" value="문제 더 만들기">
+                <input class="submit" type="submit" name="operation" value="대회 완성">
+                <hr class = "hh">
+            </form>
+        </div>
+    </div>
+    <script src="/static/JS/copy.js"></script>
+</body>
+</html>
