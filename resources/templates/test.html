@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Textarea with Line Numbers, Auto Resize, and Tab Spaces</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .line-numbers {
+          font-size: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            border-right: 1px solid #ddd;
+            text-align: right;
+            padding-right: 10px;
+            box-sizing: border-box;
+            background-color: #f0f0f0;
+            z-index: 1; /* Ensure line numbers are above the textarea */
+        }
+        .line-numbers div {
+            height: 1.5em; /* Line height should match the textarea line height */
+            line-height: 1.5em; /* Same line height as textarea */
+        }
+        .textarea-container {
+            position: relative;
+        }
+        textarea {
+          font-size: 20px;
+            width: 100%;
+            line-height: 1.5em;
+            padding-left: 60px; /* Increase padding to avoid overlap with line numbers */
+            box-sizing: border-box;
+            resize: none;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="line-numbers" id="lineNumbers"></div>
+        <div class="textarea-container">
+            <textarea id="textarea" oninput="autoResize(this); updateLineNumbers()" onscroll="syncScroll()" onkeydown="insertTab(event)"></textarea>
+        </div>
+    </div>
+
+    <script>
+        function autoResize(textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = textarea.scrollHeight + 'px';
+        }
+
+        function updateLineNumbers() {
+            const textarea = document.getElementById('textarea');
+            const lineNumbers = document.getElementById('lineNumbers');
+            const lines = textarea.value.split('\n').length;
+            lineNumbers.innerHTML = '';
+            for (let i = 1; i <= lines; i++) {
+                const lineNumberDiv = document.createElement('div');
+                lineNumberDiv.textContent = i;
+                lineNumbers.appendChild(lineNumberDiv);
+            }
+            syncScroll();
+        }
+
+        function syncScroll() {
+            const textarea = document.getElementById('textarea');
+            const lineNumbers = document.getElementById('lineNumbers');
+            lineNumbers.scrollTop = textarea.scrollTop;
+        }
+
+        function insertTab(event) {
+            const textarea = event.target;
+            if (event.key === 'Tab') {
+                event.preventDefault();
+                const start = textarea.selectionStart;
+                const end = textarea.selectionEnd;
+                textarea.value = textarea.value.substring(0, start) + '    ' + textarea.value.substring(end);
+                textarea.selectionStart = textarea.selectionEnd = start + 4;
+                autoResize(textarea);
+                updateLineNumbers();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const textarea = document.getElementById('textarea');
+            autoResize(textarea);
+            updateLineNumbers();
+        });
+    </script>
+</body>
+</html>

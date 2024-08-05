@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문제</title>
+  <link href="../static/image/MiC_white.png" rel="shortcut icon" type="image/x-icon">
+  <link rel="stylesheet" href="../static/CSS/style.css">
+  <script src="../static/JS/submitCode.js" defer></script>
+  <script src="../static/JS/user.js" defer></script>
+</head>
+<body>
+  <div class="menu">
+    <span class="leftMenu"><a href="index.html"><img class="logo" src="../static/image/MiC_white.png" alt=""><span class="title">Mathematics<br>in Coding</span></a></span>
+    <span class="rightMenu">
+      <div id = "user"></div>
+      <div style="height: 20px;"></div>
+      <div style="display: flex;">
+        <a class="select" href="problem_list.html">문제</a>
+        <a class="select" href="contest_list.html">대회</a>
+        <a class="select" href="">게시판</a>
+        <a class="select" href="">그룹</a>
+        <a class="select" href="">검색</a>
+      </div>
+    </span>
+  </div>
+  <hr class="underLine">
+  <div id="problem"></div>
+  <script src="../static/JS/problemInfo.js"></script>
+  <form class="codeForm" id="codeForm">
+    <div class="doubleDescription">
+      <div class="contentName" style="flex: 1; font-size: 20px; font-weight: 500;">소스 코드</div>
+      <div class="contentName" style="flex: 1; text-align: end;">
+        <select class="lang" id="lang">
+          <option value="Python">Python</option>
+          <option value="C">C</option>
+          <option value="Java">Java</option>
+        </select>
+      </div>
+    </div>
+    <textarea class="codeText" id="code" rows="15" oninput="autoResize(this)" onkeydown="insertTab(event)" spellcheck="false"></textarea>
+    <button class="loginButton" style="width: 100px;" type="submit">제출</button>
+  </form>
+  <script>
+    function autoResize(textarea) {
+      textarea.style.height = 'auto';
+      textarea.style.height = textarea.scrollHeight + 'px';
+    }
+
+    function insertTab(event) {
+      const textarea = event.target;
+      if (event.key === 'Tab') {
+        event.preventDefault();
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+        textarea.value = textarea.value.substring(0, start) + '    ' + textarea.value.substring(end);
+        textarea.selectionStart = textarea.selectionEnd = start + 4;
+        autoResize(textarea);
+        updateLineNumbers();
+      }
+    }
+  </script>
+  <div class="bottomBar"></div>
+</body>
+</html>

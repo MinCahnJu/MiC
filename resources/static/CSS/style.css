@@ -1,7 +1,6 @@
-body,html {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+body {
+    margin: 0;
+    padding: 0;
 }
 
 table, th, td {
@@ -18,6 +17,10 @@ a {
     text-decoration: none;
     font-size: 15px;
     color: black;
+}
+
+textarea {
+    resize: none;
 }
 
 .title {
@@ -114,11 +117,105 @@ a {
     font-size: 15px;
 }
 
+.problemInfo {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.problemName {
+    text-align: center;
+    font-size: 40px;
+    padding: 10px;
+}
+
+.problemDescription {
+    white-space: pre-wrap;
+    font-size: 20px;
+    text-align: start;
+    word-break: break-all;
+    padding-bottom: 15px;
+}
+
+.problemInputDescription {
+    white-space: pre-wrap;
+    font-size: 20px;
+    word-break: break-all;
+    padding-bottom: 15px;
+}
+
+.problemOutputDescription {
+    white-space: pre-wrap;
+    font-size: 20px;
+    word-break: break-all;
+    padding-bottom: 15px;
+}
+
+.doubleDescription {
+    display: flex;
+    width: 100%;
+}
+
+.problemExampleInput {
+    flex: 1;
+    white-space: pre-wrap;
+    font-size: 20px;
+    padding: 6px 12px;
+    margin-right: 20px;
+    word-break: break-all;
+    border: 1px solid rgb(177, 176, 176);
+    background-color: #edecec;
+}
+
+.problemExampleOutput {
+    flex: 1;
+    white-space: pre-wrap;
+    font-size: 20px;
+    padding: 6px 12px;
+    margin-right: 20px;
+    word-break: break-all;
+    border: 1px solid rgb(177, 176, 176);
+    background-color: #edecec;
+}
+
 .container {
     height: 80%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.contentName {
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid rgb(238, 238, 240);
+}
+
+.codeForm {
+    width: 900px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+}
+
+.codeText {
+    width: 876px;
+    padding: 6px 12px;
+    font-size: 20px;
+    background: #0c1021;
+    color: rgb(248, 166, 83);
+    overflow-x: auto;
+    overflow-y: auto;
+    white-space: pre;
+}
+
+.lang {
+    padding: 6px 12px;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .box {
@@ -138,8 +235,6 @@ a {
     display: flex;
     justify-content: space-around;
 }
-
-
 
 .input-group-addon {
     padding: 6px 12px;
@@ -173,6 +268,14 @@ a {
 .underLine {
     border: solid 1px #d6d4d4;
     width: 100%;
+}
+
+.bottomBar {
+    height: 300px;
+    width: 100%;
+    background: #252525;
+    border-top: 5px solid #555;
+    color: white;
 }
 
 @media (min-width: 400px) {

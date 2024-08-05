@@ -12,7 +12,7 @@ fetch(`/.netlify/functions/getContestInfo?id=${id}`)
     output += '<table class="list" style="width: 700px"><thead><tr>';
     output += '<td style="width: 15%">번호</td>';
     output += '<td style="width: 85%">문제 이름</td>';
-    output += '</tr></thead><tbody>'
+    output += '</tr></thead><tbody>';
     data.problems.forEach(item => {
       output += `<tr><td>${i}</td>`
       output += `<td><a href="open_problem.html?id=${item.id}">${item.problem_name}</a></td></tr>`;
