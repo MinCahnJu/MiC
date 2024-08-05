@@ -7,6 +7,16 @@
   status = 200
 
 [[redirects]]
+  from = "/contest_list.html"
+  to = "/templates/contest_list.html"
+  status = 200
+
+[[redirects]]
+  from = "/problem_list.html"
+  to = "/templates/problem_list.html"
+  status = 200
+
+[[redirects]]
   from = "/open_contest.html"
   to = "/templates/open_contest.html"
   status = 200

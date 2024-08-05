@@ -7,8 +7,8 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 exports.handler = async function(event, context) {
   const { data, error } = await supabase
-    .from('contests')
-    .select('contest_name, id, created_at, contest_description, user_id');
+    .from('problems')
+    .select('contest_name, problem_name, id');
 
   if (error) {
     return {

@@ -1,3 +1,19 @@
+body,html {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
 a {
     text-decoration: none;
     font-size: 15px;
@@ -5,26 +21,32 @@ a {
 }
 
 .title {
-    text-align: center;
-    background-color: blueviolet;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 100;
 }
 
 .menu {
     display: flex;
-    padding-bottom: 10px;
-    border-bottom: 1px solid gray;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .leftMenu {
     flex: 1;
-    margin-left: 10px;
+    margin-left: 50px;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
 }
 
 .rightMenu {
     flex: 3;
-    margin-right: 10px;
+    margin-right: 50px;
 }
 
 .login-devider {
@@ -44,15 +66,17 @@ a {
 }
 
 .select:hover {
+    color: rgb(115, 141, 255);
     border-bottom: 1px solid purple;
     padding-bottom: 9px;
     cursor: pointer;
 }
 
 .list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
 }
 
 .element {
@@ -88,4 +112,83 @@ a {
 .contestAdmin {
     color: red;
     font-size: 15px;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    width: auto;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.name {
+    display: flex;
+    justify-content: space-around;
+}
+
+.loginField {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #1976d2;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.loginButton {
+	background-color: #1976d2;
+	color: #fff;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 100%;
+}
+
+.underLine {
+    border: solid 1px #d6d4d4;
+    width: 100%;
+}
+
+@media (min-width: 400px) {
+    .menu {
+        width: 390px;
+    }
+}
+
+@media (min-width: 630px) {
+    .menu {
+        width: 610px;
+    }
+}
+
+@media (min-width: 768px) {
+    .menu {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .menu {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1300px) {
+    .menu {
+        width: 1200px;
+    }
 }
