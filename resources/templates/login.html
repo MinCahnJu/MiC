@@ -6,16 +6,15 @@
   <title>MiC 로그인</title>
   <link href="../static/image/MiC_white.png" rel="shortcut icon" type="image/x-icon">
   <link rel="stylesheet" href="../static/CSS/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="../static/JS/script.js" defer></script>
+  <script src="../static/JS/user.js" defer></script>
 </head>
 <body>
   <div class="menu">
     <span class="leftMenu"><a href="index.html"><img class="logo" src="../static/image/MiC_white.png" alt=""><span class="title">Mathematics<br>in Coding</span></a></span>
     <span class="rightMenu">
-      <div style="text-align: right;">
-        <a href="register.html">회원가입</a>
-        <span class="login-devider"></span>
-        <a href="login.html">로그인</a>
-      </div>
+      <div id = "user"></div>
       <div style="height: 20px;"></div>
       <div style="display: flex;">
         <a class="select" href="problem_list.html">문제</a>
@@ -30,10 +29,17 @@
   <div class="container">
     <div class="box">
       <div>로그인</div>
-      <form>
-        <div>ajou mail : <input class="loginField" type="email" id="signInEmail" /></div>
-        <div>password : <input class="loginField" type="password" id="signInPassword" /></div>
-        <button class="loginButton" type="submit" id="signInBtn">로그인</button>
+      <span id="message"></span>
+      <form id="loginForm">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fas fa-user"></i></span>
+          <input class="loginField" type="text" id="siginInId" required>
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fas fa-lock"></i></span>
+          <input class="loginField" type="password" id="siginInPassword" required>
+        </div>
+        <button class="loginButton" type="submit">로그인</button>
       </form>
     </div>
   </div>
