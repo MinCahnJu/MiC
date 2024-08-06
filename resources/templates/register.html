@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiC 회원가입</title>
+  <link href="../static/image/MiC_white.png" rel="shortcut icon" type="image/x-icon">
+  <link rel="stylesheet" href="../static/CSS/style.css">
+  <script src="../static/JS/register.js" defer></script>
+  <script src="../static/JS/user.js" defer></script>
+</head>
+<body>
+  <div class="menu">
+    <span class="leftMenu"><a href="index"><img class="logo" src="../static/image/MiC_white.png" alt=""><span class="title">Mathematics<br>in Coding</span></a></span>
+    <span class="rightMenu">
+      <div id = "user"></div>
+      <div style="height: 20px;"></div>
+      <div style="display: flex;">
+        <a class="select" href="problem_list">문제</a>
+        <a class="select" href="contest_list">대회</a>
+        <a class="select" href="">게시판</a>
+        <a class="select" href="">그룹</a>
+        <a class="select" href="">검색</a>
+      </div>
+    </span>
+  </div>
+  <hr class="underLine">
+  <div class="container">
+    <div class="box">
+      <h2>회원가입</h2>
+      <span id="message"></span>
+      <form id="registerForm">
+        <div class="input-group" style="margin-left: 10px; margin-right: 10px;">
+          <div class="regisTitle">이름</div>
+          <input class="loginField" style="width: 100%;" type="text" id="signUpName" required>
+        </div>
+        <div class="input-group" style="margin-left: 10px; margin-right: 10px;">
+          <div class="regisTitle">아이디</div>
+          <input class="loginField" style="width: 100%;" type="text" id="signUpId" required>
+        </div>
+        <div style="display: flex; width: 600px;">
+          <div class="input-group" style="flex: 1; margin-left: 10px; margin-right: 10px;">
+            <div class="regisTitle">비밀번호</div>
+            <input class="loginField" style="width: 280px;" type="password" id="signUpPassword" required>
+          </div>
+          <div class="input-group" style="flex: 1; margin-left: 10px; margin-right: 10px;">
+            <div class="regisTitle">비밀번호 확인</div>
+            <input class="loginField" style="width: 280px;" type="password" id="signUpCheckPassword" required>
+          </div>
+        </div>
+        <div class="input-group" style="margin-left: 10px; margin-right: 10px;">
+          <div class="regisTitle">이메일</div>
+          <input class="loginField" style="width: 100%;" type="text" id="signUpEmail" required>
+        </div>
+        <div class="input-group" style="margin-left: 10px; margin-right: 10px; margin-bottom: 20px;">
+          <div class="regisTitle">전화번호</div>
+          <input class="loginField" style="width: 100%;" type="text" id="signUpPhone" required>
+        </div>
+        <button class="loginButton" type="submit">회원가입</button>
+      </form>
+    </div>
+  </div>
+  <div class="bottomBar"></div>
+</body>
+</html>

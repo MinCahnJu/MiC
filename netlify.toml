@@ -7,38 +7,43 @@
   status = 200
 
 [[redirects]]
-  from = "/test.html"
+  from = "/test"
   to = "/templates/test.html"
   status = 200
 
 [[redirects]]
-  from = "/contest_list.html"
+  from = "/contest_list"
   to = "/templates/contest_list.html"
   status = 200
 
 [[redirects]]
-  from = "/problem_list.html"
+  from = "/problem_list"
   to = "/templates/problem_list.html"
   status = 200
 
 [[redirects]]
-  from = "/open_contest.html"
+  from = "/open_contest"
   to = "/templates/open_contest.html"
   status = 200
 
 [[redirects]]
-  from = "/open_problem.html"
+  from = "/open_problem"
   to = "/templates/open_problem.html"
   status = 200
 
 [[redirects]]
-  from = "/login.html"
+  from = "/login"
   to = "/templates/login.html"
   status = 200
 
 [[redirects]]
-  from = "/register.html"
+  from = "/register"
   to = "/templates/register.html"
+  status = 200
+
+[[redirects]]
+  from = "/index"
+  to = "/templates/index.html"
   status = 200
 
 [[redirects]]

@@ -1,3 +1,5 @@
+const loaderElement = document.getElementById('loader');
+
 fetch('/.netlify/functions/getAllProblems')
   .then(response => response.json())
   .then(data => {
@@ -9,11 +11,13 @@ fetch('/.netlify/functions/getAllProblems')
     output += '</tr></thead><tbody>'
     data.forEach(item => {
       output += `<tr><td>${i}</td>`;
-      output += `<td><a href="open_problem.html?id=${item.id}">${item.problem_name}</a></td>`;
+      output += `<td><a href="open_problem?id=${item.id}">${item.problem_name}</a></td>`;
       output += `<td><a href="">${item.contest_name}</a></td></tr>`;
       i += 1;
     });
     output += '</tbody></table>';
     document.getElementById('allProblems').innerHTML = output;
+
+    loaderElement.style.display = 'none';
   })
   .catch(error => console.error('Error fetching all contests:', error));

@@ -4,15 +4,15 @@ document.addEventListener("DOMContentLoaded", function() {
   loginForm.addEventListener("submit", function(event) {
     event.preventDefault(); // 폼의 기본 제출 동작을 막습니다.
 
-    const siginInId = document.getElementById("siginInId").value;
-    const siginInPassword = document.getElementById("siginInPassword").value;
+    const signInId = document.getElementById("signInId").value;
+    const signInPassword = document.getElementById("signInPassword").value;
 
     fetch('/.netlify/functions/getUserInfo', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ siginInId: siginInId, siginInPassword: siginInPassword })
+      body: JSON.stringify({ signInId: signInId, signInPassword: signInPassword })
     })
     .then(response => response.json())
     .then(data => {

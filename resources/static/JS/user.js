@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", function() {
     output += '</div>'
     document.getElementById("user").innerHTML = output;
   } else {
-    output += `<a href="register.html">회원가입</a>`;
+    output += `<a href="register">회원가입</a>`;
     output += `<span class="login-devider"></span>`;
-    output += `<a href="login.html">로그인</a>`;
+    output += `<a href="login">로그인</a>`;
     output += '</div>'
     document.getElementById("user").innerHTML = output;
   }

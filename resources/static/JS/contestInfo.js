@@ -1,5 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
+const loaderElement = document.getElementById('loader');
 
 fetch(`/.netlify/functions/getContestInfo?id=${id}`)
   .then(response => response.json())
@@ -15,10 +16,12 @@ fetch(`/.netlify/functions/getContestInfo?id=${id}`)
     output += '</tr></thead><tbody>';
     data.problems.forEach(item => {
       output += `<tr><td>${i}</td>`
-      output += `<td><a href="open_problem.html?id=${item.id}">${item.problem_name}</a></td></tr>`;
+      output += `<td><a href="open_problem?id=${item.id}">${item.problem_name}</a></td></tr>`;
       i += 1;
     });
     output += '</tbody></table>';
     document.getElementById('contest').innerHTML = output;
+
+    loaderElement.style.display = 'none';
   })
   .catch(error => console.error('Error fetching contest info:', error));

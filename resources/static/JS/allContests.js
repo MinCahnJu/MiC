@@ -1,3 +1,5 @@
+const loaderElement = document.getElementById('loader');
+
 fetch('/.netlify/functions/getAllContests')
   .then(response => response.json())
   .then(data => {
@@ -11,7 +13,7 @@ fetch('/.netlify/functions/getAllContests')
     output += '</tr></thead><tbody>'
     data.forEach(item => {
       output += `<tr><td>${i}</td>`;
-      output += `<td><a href="open_contest.html?id=${item.id}">${item.contest_name}</a></td>`;
+      output += `<td><a href="open_contest?id=${item.id}">${item.contest_name}</a></td>`;
       output += `<td>${item.contest_description}</td>`;
       output += `<td>${item.user_id}</td>`;
       output += `<td>${item.created_at.substring(0,4)}년 ${item.created_at.substring(5,7)}월 ${item.created_at.substring(8,10)}일 ${item.created_at.substring(11,16)}</td></tr>`;
@@ -19,5 +21,7 @@ fetch('/.netlify/functions/getAllContests')
     });
     output += '</tbody></table>';
     document.getElementById('allContests').innerHTML = output;
+
+    loaderElement.style.display = 'none';
   })
   .catch(error => console.error('Error fetching all contests:', error));

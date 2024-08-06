@@ -13,12 +13,12 @@ exports.handler = async function(event, context) {
     };
   }
   
-  const { siginInId, siginInPassword } = JSON.parse(event.body);
+  const { signInId, signInPassword } = JSON.parse(event.body);
 
   const { data, error} = await supabase
     .from('users')
     .select('*')
-    .eq("user_id", siginInId);
+    .eq("user_id", signInId);
 
   if (error) {
     return {
@@ -42,7 +42,7 @@ exports.handler = async function(event, context) {
 
   const password = data[0].user_pw;
 
-  if (password == siginInPassword) {
+  if (password == signInPassword) {
     return {
       statusCode: 200,
       headers: {

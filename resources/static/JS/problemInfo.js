@@ -1,5 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
+const loaderElement = document.getElementById('loader');
 
 fetch(`/.netlify/functions/getProblemInfo?id=${id}`)
   .then(response => response.json())
@@ -21,6 +22,23 @@ fetch(`/.netlify/functions/getProblemInfo?id=${id}`)
     output += `<div class="problemExampleInput">${data.problem_example_input}</div>`;
     output += `<div class="problemExampleOutput">${data.problem_example_output}</div>`;
     output += `</div></div>`;
+    output += `</div></div>`;
+    output += `<form class="codeForm" id="codeForm">`;
+    output += `<div class="doubleDescription">`;
+    output += `<div class="contentName" style="flex: 1; font-size: 20px; font-weight: 500;">소스 코드</div>`;
+    output += `<div class="contentName" style="flex: 1; text-align: end;">`;
+    output += `<select class="lang" id="lang">`;
+    output += `<option value="Python">Python</option>`;
+    output += `<option value="C">C</option>`;
+    output += `<option value="Java">Java</option>`;
+    output += `</select>`;
+    output += `</div>`;
+    output += `</div>`;
+    output += `<textarea class="codeText" id="code" rows="15" oninput="autoResize(this)" onkeydown="insertTab(event)" spellcheck="false"></textarea>`;
+    output += `<button class="loginButton" style="width: 100px;" type="submit">제출</button>`;
+    output += `</form>`;
     document.getElementById('problem').innerHTML = output;
+
+    loaderElement.style.display = 'none';
   })
   .catch(error => console.error('Error fetching problem info:', error));

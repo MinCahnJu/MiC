@@ -1,6 +1,11 @@
 body {
     margin: 0;
     padding: 0;
+    margin-top: 10px;
+}
+
+body,html {
+    height: 100%;
 }
 
 table, th, td {
@@ -76,7 +81,7 @@ textarea {
 }
 
 .list {
-    width: 1000px;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
@@ -179,11 +184,11 @@ textarea {
 }
 
 .container {
-    height: 80%;
+    height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
 }
 
 .contentName {
@@ -222,9 +227,9 @@ textarea {
     width: auto;
     height: auto;
     padding: 20px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     background-color: #fff;
 	border-radius: 10px;
@@ -248,7 +253,6 @@ textarea {
     width: 200px;
     font-size: 14px;
     padding: 8px;
-    margin-top: 20px;
     border: 1px solid #1976d2;
     border-radius: 5px;
     box-sizing: border-box;
@@ -265,6 +269,55 @@ textarea {
     margin-top: 20px;
 }
 
+.input-group {
+    margin-top: 20px;
+}
+
+.regisTitle {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.listBox {
+    display: flex;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+.listContent {
+    padding: 6px 10px;
+    text-align: center;
+    font-size: 20px;
+    border-bottom: 1px solid #e3e2e2;
+}
+
+.listContent:hover {
+    border-bottom: 2px solid #1976d2;
+}
+
+.load {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.loader {
+    border: 10px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 10px solid #d2f8f5;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+    margin: auto auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 .underLine {
     border: solid 1px #d6d4d4;
     width: 100%;
@@ -276,6 +329,7 @@ textarea {
     background: #252525;
     border-top: 5px solid #555;
     color: white;
+    margin-top: 300px;
 }
 
 @media (min-width: 400px) {
