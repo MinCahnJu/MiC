@@ -10,7 +10,7 @@ fetch(`/.netlify/functions/getContestInfo?id=${id}`)
     output += `<div class="contestName">${data.contest[0].contest_name}</div>`
     output += `<div class="contestDescription">${data.contest[0].contest_description}</div>`
     output += `<div class="contestAdmin">관리자: ${data.contest[0].user_id}</div></div>`
-    output += '<table class="list" style="width: 700px"><thead><tr>';
+    output += '<table class="list" style="width: 80%"><thead><tr>';
     output += '<td style="width: 15%">번호</td>';
     output += '<td style="width: 85%">문제 이름</td>';
     output += '</tr></thead><tbody>';
@@ -20,6 +20,7 @@ fetch(`/.netlify/functions/getContestInfo?id=${id}`)
       i += 1;
     });
     output += '</tbody></table>';
+    sessionStorage.setItem('contest', JSON.stringify(data.contest[0]));
     document.getElementById('contest').innerHTML = output;
 
     loaderElement.style.display = 'none';

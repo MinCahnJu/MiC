@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(data => {
       if (data.success) {
         sessionStorage.setItem('user', JSON.stringify(data.user));
-        window.location.href = '/index.html';
+        window.location.href = '/index';
       } else {
         document.getElementById("message").innerText = data.message;
       }

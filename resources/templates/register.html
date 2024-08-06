@@ -14,7 +14,6 @@
     <span class="leftMenu"><a href="index"><img class="logo" src="../static/image/MiC_white.png" alt=""><span class="title">Mathematics<br>in Coding</span></a></span>
     <span class="rightMenu">
       <div id = "user"></div>
-      <div style="height: 20px;"></div>
       <div style="display: flex;">
         <a class="select" href="problem_list">문제</a>
         <a class="select" href="contest_list">대회</a>
@@ -25,41 +24,45 @@
     </span>
   </div>
   <hr class="underLine">
-  <div class="container">
-    <div class="box">
-      <h2>회원가입</h2>
-      <span id="message"></span>
-      <form id="registerForm">
-        <div class="input-group" style="margin-left: 10px; margin-right: 10px;">
-          <div class="regisTitle">이름</div>
-          <input class="loginField" style="width: 100%;" type="text" id="signUpName" required>
-        </div>
-        <div class="input-group" style="margin-left: 10px; margin-right: 10px;">
-          <div class="regisTitle">아이디</div>
-          <input class="loginField" style="width: 100%;" type="text" id="signUpId" required>
-        </div>
-        <div style="display: flex; width: 600px;">
-          <div class="input-group" style="flex: 1; margin-left: 10px; margin-right: 10px;">
-            <div class="regisTitle">비밀번호</div>
-            <input class="loginField" style="width: 280px;" type="password" id="signUpPassword" required>
+  <div class="content">
+    <div class="container">
+      <div class="box">
+        <h2>회원가입</h2>
+        <span id="message"></span>
+        <form id="registerForm">
+          <div class="input-group" style="margin-left: 10px; margin-right: 10px;">
+            <div class="regisTitle">이름</div>
+            <input class="loginField" style="width: 100%;" type="text" id="signUpName" required>
           </div>
-          <div class="input-group" style="flex: 1; margin-left: 10px; margin-right: 10px;">
-            <div class="regisTitle">비밀번호 확인</div>
-            <input class="loginField" style="width: 280px;" type="password" id="signUpCheckPassword" required>
+          <div class="input-group" style="margin-left: 10px; margin-right: 10px;">
+            <div class="regisTitle">아이디</div>
+            <input class="loginField" style="width: 100%;" type="text" id="signUpId" required>
           </div>
-        </div>
-        <div class="input-group" style="margin-left: 10px; margin-right: 10px;">
-          <div class="regisTitle">이메일</div>
-          <input class="loginField" style="width: 100%;" type="text" id="signUpEmail" required>
-        </div>
-        <div class="input-group" style="margin-left: 10px; margin-right: 10px; margin-bottom: 20px;">
-          <div class="regisTitle">전화번호</div>
-          <input class="loginField" style="width: 100%;" type="text" id="signUpPhone" required>
-        </div>
-        <button class="loginButton" type="submit">회원가입</button>
-      </form>
+          <div style="display: flex; width: 600px;">
+            <div class="input-group" style="flex: 1; margin-left: 10px; margin-right: 10px;">
+              <div class="regisTitle">비밀번호</div>
+              <input class="loginField" style="width: 280px;" type="password" id="signUpPassword" required>
+            </div>
+            <div class="input-group" style="flex: 1; margin-left: 10px; margin-right: 10px;">
+              <div class="regisTitle">비밀번호 확인</div>
+              <input class="loginField" style="width: 280px;" type="password" id="signUpCheckPassword" required>
+            </div>
+          </div>
+          <div class="input-group" style="margin-left: 10px; margin-right: 10px;">
+            <div class="regisTitle">이메일</div>
+            <input class="loginField" style="width: 100%;" type="text" id="signUpEmail" required>
+          </div>
+          <div class="input-group" style="margin-left: 10px; margin-right: 10px; margin-bottom: 20px;">
+            <div class="regisTitle">전화번호</div>
+            <input class="loginField" style="width: 100%;" type="text" id="signUpPhone" required>
+          </div>
+          <button class="loginButton" type="submit">회원가입</button>
+        </form>
+      </div>
     </div>
   </div>
-  <div class="bottomBar"></div>
+  <div class="footer">
+    <p>© 2024 Your Company. All rights reserved.</p>
+  </div>
 </body>
 </html>

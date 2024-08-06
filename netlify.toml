@@ -12,6 +12,11 @@
   status = 200
 
 [[redirects]]
+  from = "/user"
+  to = "/templates/user.html"
+  status = 200
+
+[[redirects]]
   from = "/contest_list"
   to = "/templates/contest_list.html"
   status = 200

@@ -2,6 +2,11 @@ body {
     margin: 0;
     padding: 0;
     margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 body,html {
@@ -28,6 +33,16 @@ textarea {
     resize: none;
 }
 
+.test {
+    justify-content: space-between;
+}
+
+.user {
+    text-align: right;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
 .title {
     display: inline-block;
     font-size: 20px;
@@ -40,6 +55,7 @@ textarea {
     margin-right: auto;
     padding-left: 20px;
     padding-right: 20px;
+    width: 100%;
 }
 
 .leftMenu {
@@ -81,7 +97,7 @@ textarea {
 }
 
 .list {
-    width: 80%;
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
@@ -103,6 +119,9 @@ textarea {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .contestName {
@@ -112,7 +131,7 @@ textarea {
 
 .contestDescription {
     font-size: 25px;
-    max-width: 500px;
+    max-width: 100%;
     word-break: break-all;
     padding-bottom: 15px;
 }
@@ -280,10 +299,16 @@ textarea {
 
 .listBox {
     display: flex;
-    width: 80%;
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 100px;
+}
+
+.col {
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
 }
 
 .listContent {
@@ -323,34 +348,116 @@ textarea {
     width: 100%;
 }
 
-.bottomBar {
-    height: 300px;
-    width: 100%;
-    background: #252525;
-    border-top: 5px solid #555;
+.content {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.footer {
+    background-color: #333;
     color: white;
+    text-align: center;
+    padding: 10px 0;
     margin-top: 300px;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 0px) and (max-width: 400px) {
     .menu {
-        width: 390px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .leftMenu {
+        margin-left: 20px;
+    }
+    .rightMenu {
+        margin-right: 20px;
+        flex: 2;
+    }
+    .logo {
+        height: 30px;
+    }
+    .title {
+        font-size: 9px;
+    }
+    .user > a {
+        font-size: 9px;
+    }
+    .user {
+        margin-bottom: 5px;
+    }
+    .login-devider {
+        font-size: 7px;
+    }
+    .rightMenu > div > a {
+        font-size: 9px;
     }
 }
 
-@media (min-width: 630px) {
+@media (min-width: 400px) and (max-width: 630px) {
     .menu {
-        width: 610px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .rightMenu {
+        flex:2;
+    }
+    .logo {
+        height: 40px;
+    }
+    .title {
+        font-size: 11px;
+    }
+    .user > a {
+        font-size: 11px;
+    }
+    .user {
+        margin-bottom: 10px;
+    }
+    .login-devider {
+        font-size: 9px;
+    }
+    .rightMenu > div > a {
+        font-size: 11px;
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 630px) and (max-width: 800px) {
     .menu {
-        width: 750px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .rightMenu {
+        flex:2;
+    }
+    .logo {
+        height: 50px;
+    }
+    .title {
+        font-size: 13px;
+    }
+    .user > a {
+        font-size: 13px;
+    }
+    .user {
+        margin-bottom: 15px;
+    }
+    .login-devider {
+        font-size: 11px;
+    }
+    .rightMenu > div > a {
+        font-size: 13px;
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 800px) and (max-width: 992px) {
+    .menu {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1300px) {
     .menu {
         width: 970px;
     }

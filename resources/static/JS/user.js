@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
   const user = JSON.parse(sessionStorage.getItem('user'));
-  let output = '<div style="text-align: right;">';
+  let output = '<div class="user">';
   if (user) {
-    output += `<a href="">${user.name}</a>`;
+    output += `<a href="user">${user.name}</a>`;
     output += `<span class="login-devider"></span>`;
     output += `<a href="">설정</a>`;
     output += `<span class="login-devider"></span>`;
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
     logoutLink.addEventListener("click", function(event) {
       event.preventDefault();
       sessionStorage.removeItem('user');
-      window.location.href = '/index.html';
+      window.location.href = '/index';
     });
   }
 });
