@@ -7,6 +7,7 @@ body {
     min-height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
 
 body,html {
@@ -56,6 +57,7 @@ textarea {
     padding-left: 20px;
     padding-right: 20px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .leftMenu {
@@ -367,6 +369,7 @@ textarea {
     color: white;
     text-align: center;
     padding: 10px 0;
+    box-sizing: border-box;
 }
 
 @media (min-width: 0px) and (max-width: 400px) {
