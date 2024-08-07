@@ -11,7 +11,7 @@ fetch('/.netlify/functions/getAllProblems')
     output += '</tr></thead><tbody>'
     data.forEach(item => {
       output += `<tr><td>${i}</td>`;
-      output += `<td><a href="open_problem?id=${item.id}">${item.problem_name}</a></td>`;
+      output += `<td><a href="/problem/${item.id}">${item.problem_name}</a></td>`;
       output += `<td><a href="">${item.contest_name}</a></td></tr>`;
       i += 1;
     });

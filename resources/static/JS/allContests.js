@@ -13,7 +13,7 @@ fetch('/.netlify/functions/getAllContests')
     output += '</tr></thead><tbody>'
     data.forEach(item => {
       output += `<tr><td class="col" style="width: 10%">${i}</td>`;
-      output += `<td class="col" style="width: 20%"><a href="open_contest?id=${item.id}">${item.contest_name}</a></td>`;
+      output += `<td class="col" style="width: 20%"><a href="/contest/${item.id}">${item.contest_name}</a></td>`;
       output += `<td class="col" style="width: 40%">${item.contest_description}</td>`;
       output += `<td class="col" style="width: 10%">${item.user_id}</td>`;
       output += `<td class="col" style="width: 20%">${item.created_at.substring(0,4)}년 ${item.created_at.substring(5,7)}월 ${item.created_at.substring(8,10)}일 ${item.created_at.substring(11,16)}</td></tr>`;

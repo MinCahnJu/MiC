@@ -1,5 +1,7 @@
-const urlParams = new URLSearchParams(window.location.search);
-const id = urlParams.get('id');
+const path = window.location.pathname;
+const parts = path.split('/');
+const id = parts[parts.length - 1];
+
 const loaderElement = document.getElementById('loader');
 
 fetch(`/.netlify/functions/getProblemInfo?id=${id}`)
@@ -7,7 +9,6 @@ fetch(`/.netlify/functions/getProblemInfo?id=${id}`)
   .then(data => {
     let i = 1;
     let output = `<div class="problemInfo">`;
-    console.log(data);
     output += `<div class="problemName">${data.problem_name}</div>`;
     output += `<div class="contentName">문제</div>`;
     output += `<div class="problemDescription">${data.problem_description}</div>`;
@@ -23,21 +24,19 @@ fetch(`/.netlify/functions/getProblemInfo?id=${id}`)
     output += `<div class="problemExampleOutput">${data.problem_example_output}</div>`;
     output += `</div></div>`;
     output += `</div></div>`;
-    output += `<form class="codeForm" id="codeForm">`;
-    output += `<div class="doubleDescription">`;
-    output += `<div class="contentName" style="flex: 1; font-size: 20px; font-weight: 500;">소스 코드</div>`;
-    output += `<div class="contentName" style="flex: 1; text-align: end;">`;
-    output += `<select class="lang" id="lang">`;
-    output += `<option value="Python">Python</option>`;
-    output += `<option value="C">C</option>`;
-    output += `<option value="Java">Java</option>`;
-    output += `</select>`;
-    output += `</div>`;
-    output += `</div>`;
-    output += `<textarea class="codeText" id="code" rows="15" oninput="autoResize(this)" onkeydown="insertTab(event)" spellcheck="false"></textarea>`;
-    output += `<button class="loginButton" style="width: 100px;" type="submit">제출</button>`;
-    output += `</form>`;
+
+    sessionStorage.setItem('problem', JSON.stringify(data));
     document.getElementById('problem').innerHTML = output;
+
+    const script = document.createElement('script');
+    script.textContent = `
+      const problemObject = sessionStorage.getItem('problem');
+      const problem = JSON.parse(problemObject);
+      if (problem && problem.problem_name) {
+        document.title = problem.problem_name;
+      }
+    `;
+    document.body.appendChild(script);
 
     loaderElement.style.display = 'none';
   })
