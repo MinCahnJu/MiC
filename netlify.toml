@@ -27,6 +27,16 @@
   status = 200
 
 [[redirects]]
+  from = "/problem/add"
+  to = "/templates/make_problem.html"
+  status = 200
+
+[[redirects]]
+  from = "/contest/open"
+  to = "/templates/make_contest.html"
+  status = 200
+
+[[redirects]]
   from = "/contest/*"
   to = "/templates/open_contest.html"
   status = 200

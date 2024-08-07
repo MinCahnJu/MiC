@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const loginForm = document.getElementById("registerForm");
+  const registerForm = document.getElementById("registerForm");
 
-  loginForm.addEventListener("submit", function(event) {
+  registerForm.addEventListener("submit", function(event) {
     event.preventDefault(); // 폼의 기본 제출 동작을 막습니다.
 
     const signUpName = document.getElementById("signUpName").value;
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(data => {
       if (data.success) {
         alert('회원가입에 성공했습니다!');
-        window.location.href = '/login.html';
+        window.location.href = '/login';
       } else {
         document.getElementById("message").innerText = data.message;
       }

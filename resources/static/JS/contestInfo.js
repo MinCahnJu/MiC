@@ -12,7 +12,8 @@ fetch(`/.netlify/functions/getContestInfo?id=${id}`)
     output += `<div class="contestName">${data.contest[0].contest_name}</div>`
     output += `<div class="contestDescription">${data.contest[0].contest_description}</div>`
     output += `<div class="contestAdmin">관리자: ${data.contest[0].user_id}</div></div>`
-    output += '<table class="list" style="width: 50%"><thead><tr>';
+    output += `<div id="editContest"></div>`
+    output += '<table class="list" style="width: 50%;"><thead><tr>';
     output += '<td style="width: 15%">번호</td>';
     output += '<td style="width: 85%">문제 이름</td>';
     output += '</tr></thead><tbody>';
@@ -22,6 +23,7 @@ fetch(`/.netlify/functions/getContestInfo?id=${id}`)
       i += 1;
     });
     output += '</tbody></table>';
+    output += '<div id="makeProblem"></div>';
 
     sessionStorage.setItem('contest', JSON.stringify(data.contest[0]));
     document.getElementById('contest').innerHTML = output;
@@ -32,6 +34,50 @@ fetch(`/.netlify/functions/getContestInfo?id=${id}`)
       const contest = JSON.parse(contestObject);
       if (contest && contest.contest_name) {
         document.title = contest.contest_name;
+      }
+
+      const user = JSON.parse(sessionStorage.getItem('user'));
+      if (user) {
+        if (user.authority == 5 || user.user_id == contest.user_id) {
+          let output = '<div class="listBox" style="margin-top: 30px; width: 50%; justify-content: end;">';
+          output += '<a href="/problem/add"><span class="listContent">문제 추가</span></a>';
+          output += '</div>';
+          document.getElementById("makeProblem").innerHTML = output;
+          let sub = '<div class="listBox" style="margin-top: 30px; width: 50%; justify-content: center;">';
+          sub += '<a href=""><span class="listContent">대회 편집</span></a>';
+          sub += '<a href="#" id="deleteContest"><span class="listContent">대회 삭제</span></a>';
+          sub += '</div>';
+          document.getElementById("editContest").innerHTML = sub;
+        }
+      }
+
+      const deleteContest = document.getElementById("deleteContest");
+      if (deleteContest) {
+        deleteContest.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          fetch('/.netlify/functions/deleteContest', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ contestName: contest.contest_name })
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              alert('대회를 삭제했습니다!');
+              sessionStorage.removeItem('contest');
+              window.location.href = '/contest';
+            } else {
+              document.getElementById("message").innerText = data.message;
+            }
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+            document.getElementById("message").innerText = "An error occurred during login.";
+          });
+        });
       }
     `;
     document.body.appendChild(script);

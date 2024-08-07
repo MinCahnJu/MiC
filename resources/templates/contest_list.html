@@ -27,11 +27,22 @@
     <div class="listBox">
       <a href=""><span class="listContent">전체</span></a>
       <a href=""><span class="listContent">외부</span></a>
-      <a href=""><span class="listContent">대회개최</span></a>
+      <div id="openContest"></div>
     </div>
     <div id="loader" class="container"><div class="loader"></div></div>
     <div id="allContests"></div>
     <script src="../static/JS/allContests.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const user = JSON.parse(sessionStorage.getItem('user'));
+        if (user) {
+          if (user.authority > 3) {
+            let output = '<a href="/contest/open"><span class="listContent">대회개최</span></a>';
+            document.getElementById("openContest").innerHTML = output;
+          }
+        }
+      });
+    </script>
   </div>
   <div class="footer">
     <p>© 2024 Your Company. All rights reserved.</p>

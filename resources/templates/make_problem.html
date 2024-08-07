@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문제 출제</title>
+  <link href="../static/image/MiC_white.png" rel="shortcut icon" type="image/x-icon">
+  <link rel="stylesheet" href="../static/CSS/style.css">
+  <script src="../static/JS/makeProblem.js" defer></script>
+  <script src="../static/JS/user.js" defer></script>
+</head>
+<body>
+  <div class="menu">
+    <span class="leftMenu"><a href="/index"><img class="logo" src="../static/image/MiC_white.png" alt=""><span class="title">Mathematics<br>in Coding</span></a></span>
+    <span class="rightMenu">
+      <div id = "user"></div>
+      <div style="display: flex;">
+        <a class="select" href="/problem">문제</a>
+        <a class="select" href="/contest">대회</a>
+        <a class="select" href="">게시판</a>
+        <a class="select" href="">그룹</a>
+        <a class="select" href="">검색</a>
+      </div>
+    </span>
+  </div>
+  <hr class="underLine">
+  <div class="content">
+    <div class="container">
+      <div class="box" style="margin-bottom: 50px;">
+        <h2>문제 정보 기입</h2>
+        <div id="contestName"></div>
+        <span style="color: red;" id="message"></span>
+        <form id="makeProblemForm">
+          <div class="input-group" style="margin-left: 10px; margin-right: 10px;">
+            <div class="regisTitle">문제 제목</div>
+            <input class="loginField" style="width: 100%;" type="text" id="problemName" required>
+          </div>
+          <div class="input-group" style="margin-left: 10px; margin-right: 10px;">
+            <div class="regisTitle">문제 설명</div>
+            <textarea class="loginField" style="width: 100%;" id="problemDescription" rows="5" oninput="autoResize(this)" required></textarea>
+          </div>
+          <div class="input-group" style="margin-left: 10px; margin-right: 10px;">
+            <div class="regisTitle">입력에 대한 설명</div>
+            <textarea class="loginField" style="width: 100%;" id="problemInputDescription" rows="5" oninput="autoResize(this)" required></textarea>
+          </div>
+          <div class="input-group" style="margin-left: 10px; margin-right: 10px;">
+            <div class="regisTitle">출력에 대한 설명</div>
+            <textarea class="loginField" style="width: 100%;" id="problemOutputDescription" rows="5" oninput="autoResize(this)" required></textarea>
+          </div>
+          <div style="display: flex; width: 600px;">
+            <div class="input-group" style="flex: 1; margin-left: 10px; margin-right: 10px;">
+              <div class="regisTitle">입력 예제</div>
+              <textarea class="loginField" style="width: 280px;" id="problemExampleInput" rows="5" oninput="autoResize(this)" required></textarea>
+            </div>
+            <div class="input-group" style="flex: 1; margin-left: 10px; margin-right: 10px;">
+              <div class="regisTitle">출력 예제</div>
+              <textarea class="loginField" style="width: 280px;" id="problemExampleOutput" rows="5" oninput="autoResize(this)" required></textarea>
+            </div>
+          </div>
+          <div style="text-align: center;">
+            <button class="loginButton" style="width: 150px;" type="submit" value="complete">대회 완성</button>
+            <span style="margin: 0px 50px;"></span>
+            <button class="loginButton" style="width: 150px;" type="submit" value="add">문제 추가</button>
+          </div>
+        </form>
+        <script>
+          function autoResize(textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = textarea.scrollHeight + 'px';
+          }
+
+          document.addEventListener("DOMContentLoaded", function() {
+            const contest = JSON.parse(sessionStorage.getItem('contest'));
+            let output = `<div style="margin-bottom: 15px;">${contest.contest_name}</div>`
+            document.getElementById("contestName").innerHTML = output;
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <p>© 2024 Your Company. All rights reserved.</p>
+  </div>
+</body>
+</html>
