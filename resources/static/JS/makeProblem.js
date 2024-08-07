@@ -15,8 +15,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const problemExampleOutput = document.getElementById("problemExampleOutput").value;
     const action = event.submitter.value;
 
-    console.log( contestName, problemName, problemDescription, problemInputDescription, problemOutputDescription, problemExampleInput, problemExampleOutput);
-
     fetch('/.netlify/functions/getMakeProblem', {
       method: 'POST',
       headers: {

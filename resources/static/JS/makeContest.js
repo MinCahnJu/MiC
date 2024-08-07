@@ -13,8 +13,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const contestCheckPassword = document.getElementById("contestCheckPassword").value;
     const contestDescription = document.getElementById("contestDescription").value;
 
-    console.log(current, userId, contestName, contestPassword, contestCheckPassword, contestDescription);
-
     fetch('/.netlify/functions/getMakeContest', {
       method: 'POST',
       headers: {

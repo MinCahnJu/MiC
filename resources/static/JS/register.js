@@ -11,8 +11,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const signUpEmail = document.getElementById("signUpEmail").value;
     const signUpPhone = document.getElementById("signUpPhone").value;
 
-    console.log(signUpName, signUpId, signUpPassword, signUpCheckPassword, signUpEmail, signUpPhone);
-
     fetch('/.netlify/functions/registerUser', {
       method: 'POST',
       headers: {

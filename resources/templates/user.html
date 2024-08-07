@@ -55,7 +55,6 @@
   <script>
     const userObject = sessionStorage.getItem('user');
     const user = JSON.parse(userObject);
-    console.log(user);
     if (user.user_id) {
       document.title = user.user_id;
       let output = `<table><tbody><tr><td>이름</td><td>${user.name}</td></tr>`;

@@ -28,8 +28,6 @@ exports.handler = async function(event, context) {
       }
     ]);
 
-  console.log(contestName, problemName, problemDescription, problemInputDescription, problemOutputDescription, problemExampleInput, problemExampleOutput);
-
   if (error) {
     if (error.message == "duplicate key value violates unique constraint \"problems_problem_name_key\"") {
       return {
