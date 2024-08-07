@@ -7,11 +7,6 @@
   status = 200
 
 [[redirects]]
-  from = "/test"
-  to = "/templates/test.html"
-  status = 200
-
-[[redirects]]
   from = "/user"
   to = "/templates/user.html"
   status = 200
