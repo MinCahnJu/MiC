@@ -2,3 +2,4 @@
 node_modules/
 .netlify
 /resources/templates/test.html
+/resources/static/css/test.css

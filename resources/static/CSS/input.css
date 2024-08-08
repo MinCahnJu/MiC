@@ -1,0 +1,40 @@
+textarea {
+  resize: none;
+}
+
+.input-group-addon {
+  padding: 6px 12px;
+  font-size: 12px;
+  text-align: center;
+  margin-right: 5px;
+  border-right: 1px solid gray;
+}
+
+.loginField {
+  width: 200px;
+  font-size: 14px;
+  padding: 8px;
+  border: 1px solid #1976d2;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.loginButton {
+background-color: #1976d2;
+color: #fff;
+padding: 10px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+width: 100%;
+  margin-top: 20px;
+}
+
+.input-group {
+  margin-top: 20px;
+}
+
+.regisTitle {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
