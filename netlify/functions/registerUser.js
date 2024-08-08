@@ -49,6 +49,7 @@ exports.handler = async function(event, context) {
             user_pw: signUpPassword,
             phone: signUpPhone,
             email: signUpEmail,
+            authority: 0,
           }
         ]);
 

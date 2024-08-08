@@ -141,6 +141,9 @@ a {
     .rightMenu > div > a {
         font-size: 9px;
     }
+    .footer {
+        font-size: 9px;
+    }
 }
 
 @media (min-width: 400px) and (max-width: 630px) {
@@ -169,6 +172,9 @@ a {
     .rightMenu > div > a {
         font-size: 11px;
     }
+    .footer {
+        font-size: 11px;
+    }
 }
 
 @media (min-width: 630px) and (max-width: 800px) {
@@ -195,6 +201,9 @@ a {
         font-size: 11px;
     }
     .rightMenu > div > a {
+        font-size: 13px;
+    }
+    .footer {
         font-size: 13px;
     }
 }

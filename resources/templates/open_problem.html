@@ -30,7 +30,7 @@
     <script src="../static/JS/problemInfo.js"></script>
     <form class="codeForm" id="codeForm">
       <div class="doubleDescription">
-        <div class="contentName" style="flex: 1; font-size: 20px; font-weight: 500;">소스 코드</div>
+        <div class="contentName" style="flex: 1;">소스 코드</div>
         <div class="contentName" style="flex: 1; text-align: end;">
           <select class="lang" id="lang">
             <option value="Python">Python</option>
@@ -40,7 +40,7 @@
         </div>
       </div>
       <textarea class="codeText" id="code" rows="15" oninput="autoResize(this)" onkeydown="insertTab(event)" spellcheck="false"></textarea>
-      <button class="loginButton" style="width: 100px;" type="submit">제출</button>
+      <button class="loginButton" type="submit">제출</button>
     </form>
     <script src="../static/JS/submitCode.js"></script>
     <script>

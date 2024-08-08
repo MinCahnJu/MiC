@@ -1,7 +1,21 @@
+body {
+  overflow-x: auto;
+}
+
+.contentName {
+  font-size: 25px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid rgb(238, 238, 240);
+}
+
 .problemInfo {
-  width: 900px;
+  width: 100%;
+  padding: 0px 20px;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
+  box-sizing: border-box;
 }
 
 .problemName {
@@ -60,15 +74,22 @@
 }
 
 .codeForm {
-  width: 900px;
+  width: 100%;
+  padding: 0px 20px;
+  max-width: 900px;
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 100px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: none;
 }
 
 .codeText {
-  width: 876px;
+  width: 100%;
   padding: 6px 12px;
   font-size: 20px;
   background: #0c1021;
@@ -76,6 +97,7 @@
   overflow-x: auto;
   overflow-y: auto;
   white-space: pre;
+  box-sizing: border-box;
 }
 
 .lang {
@@ -84,9 +106,153 @@
   margin-bottom: 10px;
 }
 
-.contentName {
-  font-size: 25px;
+.loginButton {
+  background-color: #1976d2;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   margin-top: 20px;
-  margin-bottom: 10px;
-  border-bottom: 2px solid rgb(238, 238, 240);
+  width: auto;
+}
+
+@media (min-width: 0px) and (max-width: 400px) {
+  .contentName {
+    font-size: 15px;
+  }
+  .problemName {
+    font-size: 30px;
+  }
+  .problemDescription {
+    font-size: 10px;
+  }
+  .problemInputDescription {
+    font-size: 10px;
+  }
+  .problemOutputDescription {
+    font-size: 10px;
+  }
+  .problemExampleInput {
+    font-size: 10px;
+  }
+  .problemExampleOutput {
+    font-size: 10px;
+  }
+  .lang {
+    font-size: 10px;
+  }
+  .codeText {
+    font-size: 10px;
+  }
+  .loginButton {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 630px) {
+  .contentName {
+    font-size: 18px;
+  }
+  .problemName {
+    font-size: 33px;
+  }
+  .problemDescription {
+    font-size: 13px;
+  }
+  .problemInputDescription {
+    font-size: 13px;
+  }
+  .problemOutputDescription {
+    font-size: 13px;
+  }
+  .problemExampleInput {
+    font-size: 13px;
+  }
+  .problemExampleOutput {
+    font-size: 13px;
+  }
+  .lang {
+    font-size: 13px;
+  }
+  .codeText {
+    font-size: 13px;
+  }
+  .loginButton {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 630px) and (max-width: 800px) {
+  .contentName {
+    font-size: 21px;
+  }
+  .problemName {
+    font-size: 36px;
+  }
+  .problemDescription {
+    font-size: 16px;
+  }
+  .problemInputDescription {
+    font-size: 16px;
+  }
+  .problemOutputDescription {
+    font-size: 16px;
+  }
+  .problemExampleInput {
+    font-size: 16px;
+  }
+  .problemExampleOutput {
+    font-size: 16px;
+  }
+  .lang {
+    font-size: 16px;
+  }
+  .codeText {
+    font-size: 16px;
+  }
+  .loginButton {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 992px) {
+  .contentName {
+    font-size: 23px;
+  }
+  .problemName {
+    font-size: 38px;
+  }
+  .problemDescription {
+    font-size: 18px;
+  }
+  .problemInputDescription {
+    font-size: 18px;
+  }
+  .problemOutputDescription {
+    font-size: 18px;
+  }
+  .problemExampleInput {
+    font-size: 18px;
+  }
+  .problemExampleOutput {
+    font-size: 18px;
+  }
+  .lang {
+    font-size: 18px;
+  }
+  .codeText {
+    font-size: 18px;
+  }
+  .loginButton {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1300px) {
+
+}
+
+@media (min-width: 1300px) {
+
 }

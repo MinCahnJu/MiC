@@ -13,16 +13,16 @@ fetch(`/.netlify/functions/getContestInfo?id=${id}`)
     output += `<div class="contestDescription">${data.contest[0].contest_description}</div>`
     output += `<div class="contestAdmin">관리자: ${data.contest[0].user_id}</div></div>`
     output += `<div id="editContest"></div>`
-    output += '<table class="list" style="width: 50%;"><thead><tr>';
-    output += '<td style="width: 15%">번호</td>';
-    output += '<td style="width: 85%">문제 이름</td>';
+    output += '<div class="listBox"><table class="list"><thead><tr>';
+    output += '<td class="col" style="width: 15%">번호</td>';
+    output += '<td class="col" style="width: 85%">문제 이름</td>';
     output += '</tr></thead><tbody>';
     data.problems.forEach(item => {
-      output += `<tr><td>${i}</td>`
-      output += `<td><a href="/problem/${item.id}">${item.problem_name}</a></td></tr>`;
+      output += `<tr><td class="col" style="width: 15%">${i}</td>`
+      output += `<td class="col" style="width: 85%"><a href="/problem/${item.id}">${item.problem_name}</a></td></tr>`;
       i += 1;
     });
-    output += '</tbody></table>';
+    output += '</tbody></table></div>';
     output += '<div id="makeProblem"></div>';
 
     sessionStorage.setItem('contest', JSON.stringify(data.contest[0]));
@@ -39,11 +39,11 @@ fetch(`/.netlify/functions/getContestInfo?id=${id}`)
       const user = JSON.parse(sessionStorage.getItem('user'));
       if (user) {
         if (user.authority == 5 || user.user_id == contest.user_id) {
-          let output = '<div class="listBox" style="margin-top: 30px; width: 50%; justify-content: end;">';
+          let output = '<div class="listTitle" style="margin-top: 30px; justify-content: end;">';
           output += '<a href="/problem/add"><span class="listContent">문제 추가</span></a>';
           output += '</div>';
           document.getElementById("makeProblem").innerHTML = output;
-          let sub = '<div class="listBox" style="margin-top: 30px; width: 50%; justify-content: center;">';
+          let sub = '<div class="listTitle" style="margin-top: 30px; justify-content: center;">';
           sub += '<a href=""><span class="listContent">대회 편집</span></a>';
           sub += '<a href="#" id="deleteContest"><span class="listContent">대회 삭제</span></a>';
           sub += '</div>';

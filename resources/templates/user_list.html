@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MiC 문제</title>
+  <title>회원 관리</title>
   <link href="../static/image/MiC_white.png" rel="shortcut icon" type="image/x-icon">
   <link rel="stylesheet" href="../static/CSS/style.css">
   <link rel="stylesheet" href="../static/CSS/list.css">
@@ -25,26 +25,11 @@
   </div>
   <hr class="underLine">
   <div class="content">
-    <div class="listTitle">
-      <a href=""><span class="listContent">전체</span></a>
-      <a href=""><span class="listContent">새로 추가된 문제</span></a>
-      <div id="makeProblem"></div>
-    </div>
+    <h2 style="text-align: center;">회원 관리</h2>
+    <div style="text-align: center; color: red;" id="message"></div>
     <div id="loader" class="container"><div class="loader"></div></div>
-    <div id="allProblems"></div>
-    <script src="../static/JS/allProblems.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        const user = JSON.parse(sessionStorage.getItem('user'));
-        sessionStorage.setItem('contest', JSON.stringify({contest_name: ""}));
-        if (user) {
-          if (user.authority > 3) {
-            let output = '<a href="/problem/add"><span class="listContent">문제 추가</span></a>';
-            document.getElementById("makeProblem").innerHTML = output;
-          }
-        }
-      });
-    </script>
+    <div id="allUsers"></div>
+    <script src="../static/JS/allUsers.js"></script>
   </div>
   <div class="footer">
     <p>© 2024 Your Company. All rights reserved.</p>
