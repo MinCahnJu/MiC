@@ -12,6 +12,16 @@
   status = 200
 
 [[redirects]]
+  from = "/modify"
+  to = "/templates/edit_userInfo.html"
+  status = 200
+
+[[redirects]]
+  from = "/password/change"
+  to = "/templates/change_password.html"
+  status = 200
+
+[[redirects]]
   from = "/user/management"
   to = "/templates/user_list.html"
   status = 200

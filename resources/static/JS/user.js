@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
   if (user) {
     output += `<a href="/user">${user.name}</a>`;
     output += `<span class="login-devider"></span>`;
-    output += `<a href="">설정</a>`;
+    output += `<a href="/modify">설정</a>`;
     output += `<span class="login-devider"></span>`;
     output += `<a href="#" id="logoutLink">로그아웃</a>`;
     output += '</div>'

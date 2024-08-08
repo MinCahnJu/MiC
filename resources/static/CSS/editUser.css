@@ -1,0 +1,98 @@
+.container {
+  display: flex;
+  padding: 0px 20px;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+  margin: 0px auto;
+  margin-top: 30px;
+}
+
+.element {
+  flex: 1;
+  width: 100%;
+  padding: 0px 20px;
+}
+
+.listButton {
+  width: 100%;
+  text-align: start;
+  padding: 6px 12px;
+  font-size: 15px;
+  background-color: white;
+  border: 1px solid gray;
+  border-top: 0px;
+}
+
+.listButton:hover {
+  cursor: pointer;
+  color: skyblue;
+}
+
+.choice {
+  color: white;
+  background-color: rgb(146, 145, 145);
+}
+
+.infoTitle {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+
+.info {
+  margin: 30px 0px 0px 40px;
+}
+
+.infoName {
+  display: inline-block;
+  width: 80px;
+  text-align: end;
+  margin-right: 30px;
+}
+
+.infoElement {
+  display: inline-block;
+  width: 200px;
+  border: 1px solid rgb(185, 184, 184);
+  padding: 10px 15px;
+  background-color: rgb(223, 223, 223);
+}
+
+.white {
+  background-color: white;
+}
+
+.editButton {
+  margin-top: 30px;
+  margin-left: 80px;
+  padding: 6px 12px;
+  background-color: rgb(69, 69, 250);
+  border: 0px;
+  border-radius: 10%;
+  color: white;
+  font-size: 15px;
+}
+
+.editButton:hover {
+  background-color: rgb(42, 42, 250);
+  cursor: pointer;
+  box-shadow: 0px 0px 2px 2px rgba(136, 135, 135, 0.5);
+}
+
+.message {
+  background-color: aquamarine;
+  width: 100%;
+  padding: 6px 20px;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+.redMessage {
+  background-color: rgb(253, 137, 137);
+  width: 100%;
+  padding: 6px 20px;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
