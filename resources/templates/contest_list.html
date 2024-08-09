@@ -37,7 +37,7 @@
       document.addEventListener("DOMContentLoaded", function() {
         const user = JSON.parse(sessionStorage.getItem('user'));
         if (user) {
-          if (user.authority > 3) {
+          if (user.authority >= 3) {
             let output = '<a href="/contest/open"><span class="listContent">대회개최</span></a>';
             document.getElementById("openContest").innerHTML = output;
           }

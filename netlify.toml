@@ -12,8 +12,28 @@
   status = 200
 
 [[redirects]]
+  from = "/board"
+  to = "/templates/board.html"
+  status = 200
+
+[[redirects]]
+  from = "/search"
+  to = "/templates/search.html"
+  status = 200
+
+[[redirects]]
   from = "/user"
   to = "/templates/user.html"
+  status = 200
+
+[[redirects]]
+  from = "/user/contest"
+  to = "/templates/my_contest.html"
+  status = 200
+
+[[redirects]]
+  from = "/user/problem"
+  to = "/templates/my_problem.html"
   status = 200
 
 [[redirects]]

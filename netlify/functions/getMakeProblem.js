@@ -13,13 +13,14 @@ exports.handler = async function(event, context) {
     };
   }
   
-  const { contestName, problemName, problemDescription, problemInputDescription, problemOutputDescription, problemExampleInput, problemExampleOutput } = JSON.parse(event.body);
+  const { current, contestName, problemName, problemDescription, problemInputDescription, problemOutputDescription, problemExampleInput, problemExampleOutput } = JSON.parse(event.body);
 
   const { data, error} = await supabase
     .from('problems')
     .insert([
       { contest_name: contestName,
         problem_name: problemName,
+        user_id: current,
         problem_description: problemDescription,
         problem_input_description: problemInputDescription,
         problem_output_description: problemOutputDescription,

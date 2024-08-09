@@ -1,5 +1,12 @@
 const user = JSON.parse(sessionStorage.getItem('user'));
 
+if (user.authority >= 3) {
+  let output = '';
+  output += '<a href="/user/contest"><button class="listButton" style="border-top: 1px solid gray;">나의 대회</button></a>';
+  output += '<a href="/user/problem"><button class="listButton">나의 문제</button></a>';
+  document.getElementById("mine").innerHTML = output;
+}
+
 let authority = 0;
 
 if (user) {

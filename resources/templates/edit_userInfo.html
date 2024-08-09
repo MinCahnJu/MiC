@@ -30,6 +30,8 @@
       <div class="element" style="margin-top: 50px;">
         <a href="/modify"><button class="listButton choice" style="border-top: 1px solid gray;">정보 수정</button></a>
         <a href="/password/change"><button class="listButton">비밀번호 변경</button></a>
+        <span id="mine"></span>
+        <span id="auth"></span>
       </div>
       <div class="element" style="flex: 3.5;">
         <div class="infoTitle">정보 수정</div>
@@ -50,6 +52,18 @@
             output += `<div class="info"><span class="infoName">전화번호</span><input class="infoElement white" id="phone" type="text" value="${user.phone}"></div>`;
             output += `<button class="editButton" type="submit">제출</button>`;
             document.getElementById("editUser").innerHTML = output;
+          }
+
+          if (user.authority >= 3) {
+            let output = '<div style="margin-top: 50px;">관리</div>';
+            output += '<a href="/user/contest"><button class="listButton" style="border-top: 1px solid gray;">나의 대회</button></a>';
+            output += '<a href="/user/problem"><button class="listButton">나의 문제</button></a>';
+            document.getElementById("mine").innerHTML = output;
+          }
+
+          if (user.authority == 5) {
+            let output = '<a href="/user/management"><button class="listButton">회원 관리</button></a>';
+            document.getElementById("auth").innerHTML = output;
           }
         </script>
       </div>

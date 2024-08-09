@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MiC 문제</title>
+  <title>내 대회</title>
   <link href="../static/image/MiC_white.png" rel="shortcut icon" type="image/x-icon">
   <link rel="stylesheet" href="../static/CSS/style.css">
   <link rel="stylesheet" href="../static/CSS/list.css">
+  <link rel="stylesheet" href="../static/CSS/editUser.css">
   <script src="../static/JS/user.js" defer></script>
+  <script src="../static/JS/editAuthority.js" defer></script>
 </head>
 <body>
   <div class="menu">
@@ -25,26 +27,23 @@
   </div>
   <hr class="underLine">
   <div class="content">
-    <div class="listTitle">
-      <a href=""><span class="listContent">전체</span></a>
-      <a href=""><span class="listContent">새로 추가된 문제</span></a>
-      <div id="makeProblem"></div>
+    <div class="container">
+      <div class="element" style="margin-top: 50px;">
+        <a href="/modify"><button class="listButton" style="border-top: 1px solid gray;">정보 수정</button></a>
+        <a href="/password/change"><button class="listButton">비밀번호 변경</button></a>
+        <div style="margin-top: 50px;">관리</div>
+        <a href="/user/contest"><button class="listButton choice" style="border-top: 1px solid gray;">나의 대회</button></a>
+        <span id="mine"></span>
+        <span id="auth"></span>
+      </div>
+      <div class="element" style="flex: 3.5;">
+        <div class="infoTitle">나의 대회</div>
+        <div style="text-align: center; color: red;" id="message"></div>
+        <div id="loader" class="container"><div class="loader"></div></div>
+        <div id="myContests"></div>
+        <script src="../static/JS/myContest.js"></script>
+      </div>
     </div>
-    <div id="loader" class="container"><div class="loader"></div></div>
-    <div id="allProblems"></div>
-    <script src="../static/JS/allProblems.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        const user = JSON.parse(sessionStorage.getItem('user'));
-        sessionStorage.setItem('contest', JSON.stringify({contest_name: ""}));
-        if (user) {
-          if (user.authority >= 3) {
-            let output = '<a href="/problem/add"><span class="listContent">문제 추가</span></a>';
-            document.getElementById("makeProblem").innerHTML = output;
-          }
-        }
-      });
-    </script>
   </div>
   <div class="footer">
     <p>© 2024 Your Company. All rights reserved.</p>

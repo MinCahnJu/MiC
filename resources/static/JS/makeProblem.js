@@ -5,7 +5,9 @@ document.addEventListener("DOMContentLoaded", function() {
     event.preventDefault(); // 폼의 기본 제출 동작을 막습니다.
 
     const contest = JSON.parse(sessionStorage.getItem('contest'));
-    
+    const user = JSON.parse(sessionStorage.getItem('user'));
+
+    const current = user.user_id;
     const contestName = contest.contest_name;
     const problemName = document.getElementById("problemName").value;
     const problemDescription = document.getElementById("problemDescription").value;
@@ -21,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
           'Content-Type': 'application/json'
       },
       body: JSON.stringify({ 
+        current: current,
         contestName: contestName,
         problemName: problemName, 
         problemDescription: problemDescription, 
@@ -32,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(response => response.json())
     .then(data => {
       if (data.success) {
-        alert('문제 출제에 성공했습니다!');
         if (action == "add") {
           window.location.href = '/problem/add';
         } else {

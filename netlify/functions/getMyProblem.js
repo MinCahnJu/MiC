@@ -13,12 +13,12 @@ exports.handler = async function(event, context) {
     };
   }
   
-  const { contestName } = JSON.parse(event.body);
+  const { current } = JSON.parse(event.body);
 
-  const { data, error} = await supabase
-    .from('contests')
-    .delete()
-    .eq('contest_name', contestName);
+  const { data, error } = await supabase
+    .from('problems')
+    .select('contest_name, problem_name, id')
+    .eq("user_id", current);
 
   if (error) {
     return {
@@ -26,22 +26,7 @@ exports.handler = async function(event, context) {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ success: false, message: "서버 에러" }),
-    };
-  }
-
-  const { data2, error2} = await supabase
-    .from('problems')
-    .delete()
-    .eq('contest_name', contestName);
-
-  if (error2) {
-    return {
-      statusCode: 500,
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ success: false, message: "서버 에러" }),
+      body: JSON.stringify({ success: false, message: error.message }),
     };
   }
 
@@ -50,6 +35,6 @@ exports.handler = async function(event, context) {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ success: true, message: "대회 삭제 성공!" }),
+    body: JSON.stringify({ success: true, message: "회원가입 성공!", myProblems: data }),
   };
 };
