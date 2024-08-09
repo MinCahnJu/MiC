@@ -34,11 +34,21 @@ fetch('/.netlify/functions/getMyContest', {
       output += '<td class="col" style="width: 20%">시작</td>';
       output += '</tr></thead><tbody>'
       data.myContests.forEach(item => {
+        const koreanTime = new Date(item.created_at);
+
+        const year = koreanTime.getFullYear();
+        const month = ('0' + (koreanTime.getMonth() + 1)).slice(-2);
+        const day = ('0' + koreanTime.getDate()).slice(-2);
+        const hours = ('0' + koreanTime.getHours()).slice(-2);
+        const minutes = ('0' + koreanTime.getMinutes()).slice(-2);
+        
+        const formattedTime = `${year}년 ${month}월 ${day}일 ${hours}:${minutes}`;
+
         output += `<tr><td class="col" style="width: 10%">${i}</td>`;
         output += `<td class="col" style="width: 20%"><a href="/contest/${item.id}">${item.contest_name}</a></td>`;
         output += `<td class="col" style="width: 35%">${item.contest_description}</td>`;
         output += `<td class="col" style="width: 15%">${item.user_id}</td>`;
-        output += `<td class="col" style="width: 20%">${item.created_at.substring(0,4)}년 ${item.created_at.substring(5,7)}월 ${item.created_at.substring(8,10)}일 ${item.created_at.substring(11,16)}</td></tr>`;
+        output += `<td class="col" style="width: 20%">${formattedTime}</td></tr>`;
         i += 1;
       });
       output += '</tbody></table></div>';

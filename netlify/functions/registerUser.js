@@ -41,6 +41,9 @@ exports.handler = async function(event, context) {
         body: JSON.stringify({ success: false, message: "비밀번호가 8자 미만입니다.\n비밀번호는 8자 이상이어야 하며 영문자, 숫자를 포함해야합니다." }),
       };
     } else {
+      const now = new Date();
+      const koreanTime = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+
       const { data, error} = await supabase
         .from('users')
         .insert([
@@ -50,6 +53,7 @@ exports.handler = async function(event, context) {
             phone: signUpPhone,
             email: signUpEmail,
             authority: 0,
+            created_at: koreanTime,
           }
         ]);
 

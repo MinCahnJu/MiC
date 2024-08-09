@@ -67,6 +67,11 @@
   status = 200
 
 [[redirects]]
+  from = "/problem/new"
+  to = "/templates/new_problem.html"
+  status = 200
+
+[[redirects]]
   from = "/contest/open"
   to = "/templates/make_contest.html"
   status = 200

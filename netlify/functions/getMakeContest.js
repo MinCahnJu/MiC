@@ -17,6 +17,9 @@ exports.handler = async function(event, context) {
 
   if (current == userId) {
     if (contestPassword == contestCheckPassword) {
+      const now = new Date();
+      const koreanTime = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+
       const { data, error} = await supabase
         .from('contests')
         .insert([
@@ -24,6 +27,7 @@ exports.handler = async function(event, context) {
             contest_description: contestDescription,
             user_id: userId,
             contest_pw: contestPassword,
+            created_at: koreanTime,
           }
         ]);
   

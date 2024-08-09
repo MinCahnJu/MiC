@@ -15,6 +15,9 @@ exports.handler = async function(event, context) {
   
   const { current, contestName, problemName, problemDescription, problemInputDescription, problemOutputDescription, problemExampleInput, problemExampleOutput } = JSON.parse(event.body);
 
+  const now = new Date();
+  const koreanTime = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+
   const { data, error} = await supabase
     .from('problems')
     .insert([
@@ -26,6 +29,7 @@ exports.handler = async function(event, context) {
         problem_output_description: problemOutputDescription,
         problem_example_input: problemExampleInput,
         problem_example_output: problemExampleOutput,
+        created_at: koreanTime,
       }
     ]);
 

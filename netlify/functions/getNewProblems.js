@@ -6,10 +6,15 @@ const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 exports.handler = async function(event, context) {
+  const now = new Date();
+  const koreaTime = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+
+  const lastWeek = new Date(koreaTime.setDate(koreaTime.getDate() - 7)).toISOString().slice(0, 19).replace('T', ' ');
+
   const { data, error } = await supabase
-    .from('contests')
-    .select('contest_name, id, created_at, contest_description, user_id')
-    .order('created_at', { ascending: false });
+    .from('problems')
+    .select('contest_name, problem_name, id')
+    .gte('created_at', lastWeek);
 
   if (error) {
     return {

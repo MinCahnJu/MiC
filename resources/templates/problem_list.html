@@ -8,6 +8,11 @@
   <link rel="stylesheet" href="../static/CSS/style.css">
   <link rel="stylesheet" href="../static/CSS/list.css">
   <script src="../static/JS/user.js" defer></script>
+  <style>
+    .choose {
+      border-bottom: 2px solid #1976d2;
+    }
+  </style>
 </head>
 <body>
   <div class="menu">
@@ -26,8 +31,8 @@
   <hr class="underLine">
   <div class="content">
     <div class="listTitle">
-      <a href=""><span class="listContent">전체</span></a>
-      <a href=""><span class="listContent">새로 추가된 문제</span></a>
+      <a href="/problem"><span class="listContent choose">전체</span></a>
+      <a href="/problem/new"><span class="listContent">새로 추가된 문제</span></a>
       <div id="makeProblem"></div>
     </div>
     <div id="loader" class="container"><div class="loader"></div></div>
