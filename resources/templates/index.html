@@ -7,6 +7,30 @@
   <link href="../static/image/MiC_white.png" rel="shortcut icon" type="image/x-icon">
   <link rel="stylesheet" href="../static/CSS/style.css">
   <script src="../static/JS/user.js" defer></script>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 200vh; /* 화면이 충분히 스크롤되도록 설정 */
+      overflow-x: hidden;
+    }
+
+    .image-container {
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1000px;
+      height: 300px;
+      transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  </style>
 </head>
 <body>
   <div class="menu">
@@ -29,9 +53,28 @@
   </div>
   <hr class="underLine">
   <div class="content">
-    <div class="banner">
-      <img style="flex: 1; width: 100%;" src="../static/image/banner.png" alt="로딩실패">
+    <div class="image-container">
+      <img src="../static/image/banner.png" alt="로딩실패">
     </div>
+    <script>
+      window.onscroll = function() {
+        const imageContainer = document.querySelector('.image-container');
+        const scrollValue = window.scrollY; // 스크롤된 양을 가져옴
+    
+        // 이미지 확대 비율 설정
+        const scaleValue = 1 + scrollValue / 300;
+        imageContainer.style.transform = `translate(-50%, -50%) scale(${scaleValue})`;
+    
+        // 스크롤이 많이 될수록 투명도 감소
+        const opacityValue = 1 - scrollValue / 300;
+        imageContainer.style.opacity = opacityValue;
+        
+        // 투명도가 0이하로 내려가는 것을 방지
+        if (opacityValue <= 0) {
+          imageContainer.style.opacity = 0;
+        }
+      };
+    </script>
   </div>
   <div class="footer">
     <p>© 2024 Your Company. All rights reserved.</p>

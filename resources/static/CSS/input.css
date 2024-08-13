@@ -19,6 +19,12 @@ textarea {
   box-sizing: border-box;
 }
 
+.loginField:focus {
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+  border-color: #007BFF;
+  outline: none;
+}
+
 .loginButton {
 background-color: #1976d2;
 color: #fff;
