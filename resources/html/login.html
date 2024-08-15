@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiC 로그인</title>
+  <link href="../static/image/MiC_white.png" rel="shortcut icon" type="image/x-icon">
+  <link rel="stylesheet" href="../static/CSS/style.css">
+  <link rel="stylesheet" href="../static/CSS/box.css">
+  <link rel="stylesheet" href="../static/CSS/input.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="../static/JS/login.js" defer></script>
+  <script src="../static/JS/user.js" defer></script>
+  <style>
+    .input-group {
+      margin-top: 20px;
+      display: flex;
+    }
+    
+    .input-group > span {
+      text-align: start;
+      flex: 1;
+    }
+    
+    .input-group > input {
+      flex: 2.5;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <span class="leftMenu"><a href="/index"><img class="logo" src="../static/image/MiC_white.png" alt=""><span class="title">Mathematics<br>in Coding</span></a></span>
+    <span class="rightMenu">
+      <div id = "user"></div>
+      <div style="display: flex;">
+        <a class="select" href="/problem">문제</a>
+        <a class="select" href="/contest">대회</a>
+        <a class="select" href="/board">게시판</a>
+        <a class="select" href="/group">그룹</a>
+        <a class="select" href="/search">검색</a>
+      </div>
+    </span>
+  </div>
+  <hr class="underLine">
+  <div class="content">
+    <div class="container">
+      <div class="box" style="margin: auto auto;">
+        <div id="signUp" class="signUp">
+          <h1>회원가입</h1>
+          <span id="registerMessage"></span>
+          <form id="registerForm">
+            <div class="input-group">
+              <span class="regisTitle">이름</span>
+              <input class="loginField" type="text" id="signUpName" required>
+            </div>
+            <div class="input-group">
+              <span class="regisTitle">아이디</span>
+              <input class="loginField" type="text" id="signUpId" required>
+            </div>
+            <div class="input-group">
+              <span class="regisTitle">비밀번호</span>
+              <input class="loginField" type="password" id="signUpPassword" required>
+            </div>
+            <div class="input-group">
+              <span class="regisTitle">비밀번호 확인</span>
+              <input class="loginField" type="password" id="signUpCheckPassword" required>
+            </div>
+            <div class="input-group">
+              <span class="regisTitle">이메일</span>
+              <input class="loginField" type="text" id="signUpEmail" required>
+            </div>
+            <div class="input-group">
+              <span class="regisTitle">전화번호</span>
+              <input class="loginField" type="text" id="signUpPhone" required>
+            </div>
+            <button class="loginButton" type="submit">회원가입</button>
+          </form>
+        </div>
+
+        <div id="signInDes" class="signInDes">
+          <h1 style="color: white;"> Hello MiC! </h1>
+          <p style="color: white;">아이디와 비밀번호를 입력해주세요</p>
+          <button class="changeBtn">회원가입</button>
+        </div>
+
+        <div class="changeBox"></div>
+
+        <div id="signUpDes" class="signUpDes move-left">
+          <h1 style="color: white;"> Wellcome MiC! </h1>
+          <p style="color: white;">사용자 정보들을 입력해주세요</p>
+          <p style="color: white;">비밀번호는 8자 이상이어야 하며</p>
+          <p style="color: white;">영문자, 숫자를 포함해야합니다.</p>
+          <button class="changeBtn">로그인</button>
+        </div>
+
+        <div id="signIn" class="signIn">
+          <h1>로그인</h1>
+          <span id="loginMessage"></span>
+          <form id="loginForm">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fas fa-user"></i></span>
+              <input class="loginField" style="flex: 10;" type="text" id="signInId" placeholder="아이디" required>
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fas fa-lock"></i></span>
+              <input class="loginField" style="flex: 10;" type="password" id="signInPassword" placeholder="비밀번호" required>
+            </div>
+            <button class="loginButton" type="submit">로그인</button>
+          </form>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="footer">
+    <p>© 2024 Your Company. All rights reserved.</p>
+  </div>
+</body>
+</html>

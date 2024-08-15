@@ -7,101 +7,106 @@
   status = 200
 
 [[redirects]]
+  from = "/test"
+  to = "/test/test.html"
+  status = 200
+
+[[redirects]]
   from = "/group"
-  to = "/templates/group.html"
+  to = "/html/group.html"
   status = 200
 
 [[redirects]]
   from = "/board"
-  to = "/templates/board.html"
+  to = "/html/board.html"
   status = 200
 
 [[redirects]]
   from = "/search"
-  to = "/templates/search.html"
+  to = "/html/search.html"
   status = 200
 
 [[redirects]]
   from = "/user"
-  to = "/templates/user.html"
+  to = "/html/user.html"
   status = 200
 
 [[redirects]]
   from = "/user/contest"
-  to = "/templates/my_contest.html"
+  to = "/html/my_contest.html"
   status = 200
 
 [[redirects]]
   from = "/user/problem"
-  to = "/templates/my_problem.html"
+  to = "/html/my_problem.html"
   status = 200
 
 [[redirects]]
   from = "/modify"
-  to = "/templates/edit_userInfo.html"
+  to = "/html/edit_userInfo.html"
   status = 200
 
 [[redirects]]
   from = "/password/change"
-  to = "/templates/change_password.html"
+  to = "/html/change_password.html"
   status = 200
 
 [[redirects]]
   from = "/user/management"
-  to = "/templates/user_list.html"
+  to = "/html/user_list.html"
   status = 200
 
 [[redirects]]
   from = "/contest"
-  to = "/templates/contest_list.html"
+  to = "/html/contest_list.html"
   status = 200
 
 [[redirects]]
   from = "/problem"
-  to = "/templates/problem_list.html"
+  to = "/html/problem_list.html"
   status = 200
 
 [[redirects]]
   from = "/problem/add"
-  to = "/templates/make_problem.html"
+  to = "/html/make_problem.html"
   status = 200
 
 [[redirects]]
   from = "/problem/new"
-  to = "/templates/new_problem.html"
+  to = "/html/new_problem.html"
   status = 200
 
 [[redirects]]
   from = "/contest/open"
-  to = "/templates/make_contest.html"
+  to = "/html/make_contest.html"
   status = 200
 
 [[redirects]]
   from = "/contest/*"
-  to = "/templates/open_contest.html"
+  to = "/html/open_contest.html"
   status = 200
 
 [[redirects]]
   from = "/problem/*"
-  to = "/templates/open_problem.html"
+  to = "/html/open_problem.html"
   status = 200
 
 [[redirects]]
   from = "/login"
-  to = "/templates/login.html"
+  to = "/html/login.html"
   status = 200
 
 [[redirects]]
   from = "/register"
-  to = "/templates/register.html"
+  to = "/html/register.html"
   status = 200
 
 [[redirects]]
   from = "/index"
-  to = "/templates/index.html"
+  to = "/html/index.html"
   status = 200
 
 [[redirects]]
   from = "/*"
-  to = "/templates/index.html"
+  to = "/html/index.html"
   status = 200

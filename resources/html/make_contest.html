@@ -3,13 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MiC 회원가입</title>
+  <title>대회 개최</title>
   <link href="../static/image/MiC_white.png" rel="shortcut icon" type="image/x-icon">
   <link rel="stylesheet" href="../static/CSS/style.css">
   <link rel="stylesheet" href="../static/CSS/box.css">
   <link rel="stylesheet" href="../static/CSS/input.css">
-  <script src="../static/JS/register.js" defer></script>
+  <script src="../static/JS/makeContest.js" defer></script>
   <script src="../static/JS/user.js" defer></script>
+  <style>
+    .input-group {
+      margin-top: 20px;
+    }
+    
+    .input-group > span {
+    }
+    
+    .input-group > input {
+    }
+  </style>
 </head>
 <body>
   <div class="menu">
@@ -28,39 +39,41 @@
   <hr class="underLine">
   <div class="content">
     <div class="container">
-      <div class="box">
-        <h2>회원가입</h2>
+      <div class="addBox" style="margin-bottom: 50px;">
+        <h2>대회 정보 기입</h2>
         <span id="message"></span>
-        <form id="registerForm">
+        <form id="openContestForm">
           <div class="input-group" style="margin-left: 10px; margin-right: 10px;">
-            <div class="regisTitle">이름</div>
-            <input class="loginField" style="width: 100%;" type="text" id="signUpName" required>
+            <div class="regisTitle">본인 아이디</div>
+            <input class="loginField" style="width: 100%;" type="text" id="userId" required>
           </div>
           <div class="input-group" style="margin-left: 10px; margin-right: 10px;">
-            <div class="regisTitle">아이디</div>
-            <input class="loginField" style="width: 100%;" type="text" id="signUpId" required>
+            <div class="regisTitle">대회 제목</div>
+            <input class="loginField" style="width: 100%;" type="text" id="contestName" required>
           </div>
           <div style="display: flex; width: 600px;">
             <div class="input-group" style="flex: 1; margin-left: 10px; margin-right: 10px;">
-              <div class="regisTitle">비밀번호</div>
-              <input class="loginField" style="width: 280px;" type="password" id="signUpPassword" required>
+              <div class="regisTitle">대회 비밀번호</div>
+              <input class="loginField" style="width: 280px;" type="password" id="contestPassword" required>
             </div>
             <div class="input-group" style="flex: 1; margin-left: 10px; margin-right: 10px;">
               <div class="regisTitle">비밀번호 확인</div>
-              <input class="loginField" style="width: 280px;" type="password" id="signUpCheckPassword" required>
+              <input class="loginField" style="width: 280px;" type="password" id="contestCheckPassword" required>
             </div>
           </div>
-          <div style="margin-left: 10px; margin-top: 10px; color: red; font-size: 13px;">비밀번호는 8자 이상이어야 하며 영문자, 숫자를 포함해야합니다.</div>
+          <div style="margin-left: 10px; margin-top: 10px; color: red; font-size: 13px;">누구나 접근할 수 있는 대회를 개최하려면 비밀번호를 "open"으로 해주세요.</div>
           <div class="input-group" style="margin-left: 10px; margin-right: 10px;">
-            <div class="regisTitle">이메일</div>
-            <input class="loginField" style="width: 100%;" type="text" id="signUpEmail" required>
+            <div class="regisTitle">대회 설명</div>
+            <textarea class="loginField" style="width: 100%;" id="contestDescription" rows="5" oninput="autoResize(this)" required></textarea>
           </div>
-          <div class="input-group" style="margin-left: 10px; margin-right: 10px; margin-bottom: 20px;">
-            <div class="regisTitle">전화번호</div>
-            <input class="loginField" style="width: 100%;" type="text" id="signUpPhone" required>
-          </div>
-          <button class="loginButton" type="submit">회원가입</button>
+          <button class="loginButton" type="submit">대회 개최</button>
         </form>
+        <script>
+          function autoResize(textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = textarea.scrollHeight + 'px';
+          }
+        </script>
       </div>
     </div>
   </div>
