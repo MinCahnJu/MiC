@@ -13,33 +13,43 @@ fetch('/.netlify/functions/getAllContests')
       timeZone: 'Asia/Seoul',
     };
     
-    let i = 1;
-    let output = '<div class="listBox"><table class="list"><thead><tr>';
-    output += '<td class="col" style="width: 10%">번호</td>';
-    output += '<td class="col" style="width: 20%">대회 이름</td>';
-    output += '<td class="col" style="width: 35%">대회 설명</td>';
-    output += '<td class="col" style="width: 15%">관리자</td>';
-    output += '<td class="col" style="width: 20%">시작</td>';
-    output += '</tr></thead><tbody>'
+    let output = '<div class="listBox"><div class="list">';
+    output += '<div>대회 목록</div>'
     data.forEach(item => {
-      const koreanTime = new Date(item.created_at);
-
-      const year = koreanTime.getFullYear();
-      const month = ('0' + (koreanTime.getMonth() + 1)).slice(-2);
-      const day = ('0' + koreanTime.getDate()).slice(-2);
-      const hours = ('0' + koreanTime.getHours()).slice(-2);
-      const minutes = ('0' + koreanTime.getMinutes()).slice(-2);
-
-      const formattedTime = `${year}년 ${month}월 ${day}일 ${hours}:${minutes}`;
-      
-      output += `<tr><td class="col" style="width: 10%">${i}</td>`;
-      output += `<td class="col" style="width: 20%"><a href="/contest/${item.id}">${item.contest_name}</a></td>`;
-      output += `<td class="col" style="width: 35%">${item.contest_description}</td>`;
-      output += `<td class="col" style="width: 15%">${item.user_id}</td>`;
-      output += `<td class="col" style="width: 20%;">${formattedTime}</td></tr>`;
-      i += 1;
+      output += `<a href="/contest/${item.id}"><div class="col">`;
+      output += `<div class="colDes">${item.contest_name}</div>`;
+      output += `<div>${item.contest_description}</div>`;
+      output += `<div>주최자: ${item.user_id}</div></div></a>`;
     });
-    output += '</tbody></table></div>';
+    output += '</div></div>';
+
+    // let i = 0;
+    // let output = '<div class="listBox"><table class="list"><thead><tr>';
+    // output += '<td class="col" style="width: 10%">번호</td>';
+    // output += '<td class="col" style="width: 20%">대회 이름</td>';
+    // output += '<td class="col" style="width: 35%">대회 설명</td>';
+    // output += '<td class="col" style="width: 15%">관리자</td>';
+    // output += '<td class="col" style="width: 20%">시작</td>';
+    // output += '</tr></thead><tbody>'
+    // data.forEach(item => {
+    //   const koreanTime = new Date(item.created_at);
+
+    //   const year = koreanTime.getFullYear();
+    //   const month = ('0' + (koreanTime.getMonth() + 1)).slice(-2);
+    //   const day = ('0' + koreanTime.getDate()).slice(-2);
+    //   const hours = ('0' + koreanTime.getHours()).slice(-2);
+    //   const minutes = ('0' + koreanTime.getMinutes()).slice(-2);
+
+    //   const formattedTime = `${year}년 ${month}월 ${day}일 ${hours}:${minutes}`;
+      
+    //   output += `<tr><td class="col" style="width: 10%">${i}</td>`;
+    //   output += `<td class="col" style="width: 20%"><a href="/contest/${item.id}">${item.contest_name}</a></td>`;
+    //   output += `<td class="col" style="width: 35%">${item.contest_description}</td>`;
+    //   output += `<td class="col" style="width: 15%">${item.user_id}</td>`;
+    //   output += `<td class="col" style="width: 20%;">${formattedTime}</td></tr>`;
+    //   i += 1;
+    // });
+    // output += '</tbody></table></div>';
     document.getElementById('allContests').innerHTML = output;
 
     loaderElement.style.display = 'none';

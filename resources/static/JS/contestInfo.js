@@ -13,16 +13,24 @@ fetch(`/.netlify/functions/getContestInfo?id=${id}`)
     output += `<div class="contestDescription">${data.contest[0].contest_description}</div>`
     output += `<div class="contestAdmin">관리자: ${data.contest[0].user_id}</div></div>`
     output += `<div id="editContest"></div>`
-    output += '<div class="listBox"><table class="list"><thead><tr>';
-    output += '<td class="col" style="width: 15%">번호</td>';
-    output += '<td class="col" style="width: 85%">문제 이름</td>';
-    output += '</tr></thead><tbody>';
+
+    output += '<div class="listBox"><div class="list">';
+    output += '<div>문제 목록</div>'
     data.problems.forEach(item => {
-      output += `<tr><td class="col" style="width: 15%">${i}</td>`
-      output += `<td class="col" style="width: 85%"><a href="/problem/${item.id}">${item.problem_name}</a></td></tr>`;
-      i += 1;
+      output += `<a href="/problem/${item.id}"><div class="col">`;
+      output += `<div class="colDes">${item.problem_name}</div></div></a>`;
     });
-    output += '</tbody></table></div>';
+    output += '</div></div>';
+    // output += '<div class="listBox"><table class="list"><thead><tr>';
+    // output += '<td class="col" style="width: 15%">번호</td>';
+    // output += '<td class="col" style="width: 85%">문제 이름</td>';
+    // output += '</tr></thead><tbody>';
+    // data.problems.forEach(item => {
+    //   output += `<tr><td class="col" style="width: 15%">${i}</td>`
+    //   output += `<td class="col" style="width: 85%"><a href="/problem/${item.id}">${item.problem_name}</a></td></tr>`;
+    //   i += 1;
+    // });
+    // output += '</tbody></table></div>';
     output += '<div id="makeProblem"></div>';
 
     sessionStorage.setItem('contest', JSON.stringify(data.contest[0]));

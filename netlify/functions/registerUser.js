@@ -22,7 +22,7 @@ exports.handler = async function(event, context) {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ success: false, message: "비밀번호가 영어를 포함하지 않습니다.\n비밀번호는 8자 이상이어야 하며 영문자, 숫자를 포함해야합니다." }),
+        body: JSON.stringify({ success: false, message: "비밀번호가 영어를 포함하지 않습니다." }),
       };
     } else if (!/[0-9]/.test(signUpPassword )) {
       return {
@@ -30,7 +30,7 @@ exports.handler = async function(event, context) {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ success: false, message: "비밀번호가 숫자를 포함하지 않습니다.\n비밀번호는 8자 이상이어야 하며 영문자, 숫자를 포함해야합니다." }),
+        body: JSON.stringify({ success: false, message: "비밀번호가 숫자를 포함하지 않습니다." }),
       };
     } else if (signUpPassword.length < 8) {
       return {
@@ -38,7 +38,7 @@ exports.handler = async function(event, context) {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ success: false, message: "비밀번호가 8자 미만입니다.\n비밀번호는 8자 이상이어야 하며 영문자, 숫자를 포함해야합니다." }),
+        body: JSON.stringify({ success: false, message: "비밀번호가 8자 미만입니다." }),
       };
     } else {
       const now = new Date();
